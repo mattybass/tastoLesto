@@ -32,7 +32,7 @@ CompilerSettings=0000000000000000000000000
 <<<<<<< HEAD
 UnitCount=8
 =======
-UnitCount=7
+UnitCount=4
 >>>>>>> master
 
 [VersionInfo]
@@ -56,16 +56,6 @@ SyncProduct=1
 
 [Unit1]
 FileName=main.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit3]
-FileName=veicolo.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -147,8 +137,8 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit2]
-FileName=data.h
+[Unit4]
+FileName=luogo.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -157,8 +147,18 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit4]
-FileName=furto.cpp
+[Unit2]
+FileName=veicolo.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit3]
+FileName=luogo.cpp
 CompileCpp=1
 Folder=
 Compile=1
