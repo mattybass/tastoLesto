@@ -4,8 +4,13 @@ CursorRow=1
 TopLine=1
 LeftChar=1
 [Editors]
+<<<<<<< Updated upstream
 Order=1,2,3
 Focused=1
+=======
+Order=0,1,2
+Focused=0
+>>>>>>> Stashed changes
 [Editor_1]
 CursorCol=20
 CursorRow=1
