@@ -15,7 +15,9 @@ class Data{
 	   Data();
 	   Data(int _g,int _m ,int _a);
 	   void stampa()const;
+	   friend ostream& operator <<(ostream& os,const Data &d);
 	
 };
+ostream& operator <<(ostream& os,const Data &d);
 
 #endif

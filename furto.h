@@ -14,11 +14,11 @@ class Furto{
 		string noteDenuncia;
 	public:
 		Furto(int _g, int _m, int _a, string _note, string _luogo);
-		
-
-		
+		void stampa()const;		
 };
+void test_furto();
 
+#endif
 
 
 

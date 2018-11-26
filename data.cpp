@@ -15,6 +15,11 @@ Data::Data(int _g,int _m ,int _a){
 	mese=_m;
 	anno=_a;
 }
+
 void Data::stampa()const{
 	cout<<giorno<<":"<<mese<<":"<<anno;
+}
+
+ostream& operator <<(ostream& os,const Data &d){
+	return os<<d.giorno<<":"<<d.mese<<":"<<d.anno;
 }

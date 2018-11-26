@@ -1,5 +1,6 @@
 #ifndef __BOLLO_H__
 #define __BOLLO_H__
+#include "data.h"
 using namespace std;
 class Bollo{
 	private: 
@@ -7,11 +8,12 @@ class Bollo{
 		Data dataScadenzaB;
 		float costo;
 	public: 
-		Bollo(int _kw, int _catEuro, int _g,int _m,int _a);//sono valori che servono per calcolare il costo del bollo e vengono passati 
-									 //alla creazione del veicolo	
-		setScadenzaB(int _g,int _m,int _a);
-};                                   
+		Bollo(int _kw, int _catEuro, int _g,int _m,int _a);//sono valori che servono per calcolare il costo del bollo e vengono passati alla creazione del veicolo	
+		void stampa()const;
+//		setScadenzaB(int _g,int _m,int _a);
 
+};                                   
+		void test_bollo();
 
 
 #endif
