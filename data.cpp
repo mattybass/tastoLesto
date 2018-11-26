@@ -1,7 +1,7 @@
 #include "data.h"
 
 
-Data::Data(){
+/*Data::Data(){
 	time_t data;
 	tm *dataInfo;
 	data=time(NULL); //ottiene l'ora odierna
@@ -9,12 +9,12 @@ Data::Data(){
 	giorno=tm_mday;
 	mese=tm_mon;
 	anno=tm_year;
-}
+}*/
 Data::Data(int _g,int _m ,int _a){
 	giorno=_g;
 	mese=_m;
 	anno=_a;
 }
-void Data::StampaData()const{
-	cout<<giorno<<"/"<<mese<<"/"<<anno;
+void Data::stampa()const{
+	cout<<giorno<<":"<<mese<<":"<<anno;
 }

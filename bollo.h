@@ -3,13 +3,13 @@
 using namespace std;
 class Bollo{
 	private: 
-		Data datascadenza;
+		Data dataInizioB;
+		Data dataScadenzaB;
 		float costo;
 	public: 
-		Bollo(int _kw, int _catEuro);//sono valori che servono per calcolare il costo del bollo e vengono passati 
+		Bollo(int _kw, int _catEuro, int _g,int _m,int _a);//sono valori che servono per calcolare il costo del bollo e vengono passati 
 									 //alla creazione del veicolo	
-		Bollo(Data _d, int kw, int _catEuro); //qui si specifica anche la data che verrà inserita nell'oggetto bollo
-		setScadenzaB(Data _d);
+		setScadenzaB(int _g,int _m,int _a);
 };                                   
 
 
