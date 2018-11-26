@@ -32,7 +32,7 @@ CompilerSettings=0000000000000000000000000
 <<<<<<< HEAD
 UnitCount=8
 =======
-UnitCount=9
+UnitCount=7
 >>>>>>> master
 
 [VersionInfo]
@@ -64,28 +64,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit2]
-FileName=bollo.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
 [Unit3]
-FileName=data.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit4]
-<<<<<<< HEAD
 FileName=veicolo.h
 CompileCpp=1
 Folder=
@@ -96,7 +75,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit6]
-FileName=furto.cpp
+FileName=luogo.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -118,7 +97,7 @@ BuildCmd=
 [Unit7]
 FileName=assicurazione.h
 =======
-FileName=furto.h
+FileName=luogo.h
 >>>>>>> master
 CompileCpp=1
 Folder=
@@ -159,7 +138,27 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit5]
-FileName=data.cpp
+FileName=furto.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit2]
+FileName=data.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit4]
+FileName=furto.cpp
 CompileCpp=1
 Folder=
 Compile=1

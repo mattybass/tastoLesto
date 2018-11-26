@@ -5,8 +5,8 @@ TopLine=1
 LeftChar=1
 [Editors]
 <<<<<<< HEAD
-Order=0,3
-Focused=3
+Order=0,2
+Focused=2
 =======
 Order=1,2,3
 Focused=1
@@ -17,8 +17,8 @@ CursorRow=1
 TopLine=1
 LeftChar=1
 [Editor_2]
-CursorCol=15
-CursorRow=2
+CursorCol=21
+CursorRow=12
 TopLine=1
 LeftChar=1
 [Editor_3]
