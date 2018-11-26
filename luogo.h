@@ -7,7 +7,7 @@ class Luogo{
 	   String provincia;
 	   String comune;
 	   String via;
-	   int cap;
+	   string cap;
 	   int nCivico;
 	public:
 		Luogo(string _provincia, string _com, string _via, int _nCivico, int _cap);

@@ -11,7 +11,7 @@ class Furto{
 	private:
 		Data dataDenuncia;
 		string luogoDenuncia;
-		noteDenuncia;
+		string noteDenuncia;
 	public:
 		Furto(int _g, int _m, int _a, string _note, string _luogo);
 		
