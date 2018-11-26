@@ -29,7 +29,11 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
+<<<<<<< HEAD
 UnitCount=8
+=======
+UnitCount=4
+>>>>>>> master
 
 [VersionInfo]
 Major=1
@@ -81,6 +85,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit4]
+<<<<<<< HEAD
 FileName=veicolo.h
 CompileCpp=1
 Folder=
@@ -122,6 +127,9 @@ BuildCmd=
 
 [Unit7]
 FileName=assicurazione.h
+=======
+FileName=..\..\c++\TL\data.cpp
+>>>>>>> master
 CompileCpp=1
 Folder=
 Compile=1
