@@ -1,0 +1,21 @@
+LISTE= sono le liste che abbiamo studiato a programmazione 1, permettono iterazione in entrambe le direzioni 
+            ogni elemento è collegato al suo successivo ed al suo precedente. Non possono accedere in maniera
+            random, ma devo scorrere tutta la lista. 
+MAP = contenitori che immagazzinano elementi formati da una combinazione di un valore chiave e di un valore 
+            mappato da quella chiave. I valori all'interno del map vengono ordinati secondo il valore chiave. 	
+            Molto importante, i valori in un map sono accessibili tramite l'operatore [], quindi ad esempio se ho una 	
+            map che si chiama automobili, la chiave è la cilindrata e il valore associato è un oggetto auto, 
+            automobili[cilindrata] restituisce l'oggetto auto! Il valore passato come chiave deve essere per forza 
+            ordinabile, quindi deve avere la dichiarazione dell'operatore minore (<). 
+            Non permettono l'inserimento di due elementi con la stessa chiave. 
+MULTIMAP = come le map ma permettono l'inserimento di elementi con la stessa chiave. C'è una cosa che 	
+                       nel map si può fare ma nel multimap no!? 
+SET= gli elementi, una volta inseriti nel set non possono più essere modificati, ma solo rimossi e riaggiunti. 
+         Un elemento è anche la sua chiave, non possono esserci due elementi con la stessa chiave. Anche qui gli 
+         elementi sono ordinati secondo la chiave e quindi bisogna che sia disponibile l'operatore <. 
+
+OVERLOAD DI FUNZIONI = usa lo stesso principio per cui, due funzioni con lo stesso nome ma con parametri	
+                                                diversi possono essere due funzioni che fanno cose anche assolutamente 
+                                                diverse (anche se è bene che non sia così). 
+
+TEMPLATES = 
