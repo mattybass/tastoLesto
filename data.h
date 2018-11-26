@@ -1,17 +1,21 @@
-#ifndef __DATA_H__
-#define __DATA_H__
-using namespace std;
-class Bollo{
-	private: 
-		Data datascadenza;
-		float costo;
-	public: 
-		Bollo(int _kw, int _catEuro);//sono valori che servono per calcolare il costo del bollo e vengono passati 
-									 //alla creazione del veicolo	
-		Bollo(Data _d, int kw, int _catEuro); //qui si specifica anche la data che verrà inserita nell'oggetto bollo
-		setScadenzaB(Data _d);
-};                                   
+#ifndef __data_h__
+#define __data_h__
 
 
+#include <cstdlib>
+#include <iostream>
+#include <time.h> // per la data odierna 
 
-#endif
+using namespace std; 
+
+class Data{
+	private:
+	   int giorno,mese,anno;
+	public:
+	   Data();
+	   Data(int _g,int _m ,int _a);
+	   void StampaData()const;
+	
+};
+
+#endif;
