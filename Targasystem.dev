@@ -32,7 +32,7 @@ CompilerSettings=0000000000000000000000000
 <<<<<<< HEAD
 UnitCount=8
 =======
-UnitCount=4
+UnitCount=2
 >>>>>>> master
 
 [VersionInfo]
@@ -149,16 +149,6 @@ BuildCmd=
 
 [Unit2]
 FileName=veicolo.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit3]
-FileName=luogo.cpp
 CompileCpp=1
 Folder=
 Compile=1
