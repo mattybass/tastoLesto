@@ -16,6 +16,7 @@ class Veicolo{
 		list <Furto> listaFurto;
 		list <Assicurazione> listaAssicurazione;
 		list <Revisione> listaRevisione;
+		bool avviso[4];
 //		Automobile automobile;
 //		Proprietario proprietario;
 		Data dataImmatricolazione;
@@ -26,6 +27,7 @@ class Veicolo{
 		void addAssicurazione(string _compagnia,int _g,int _m,int _a,int _durata);
 		void addFurto(int _g, int _m, int _a, string _note, string _luogo);
 		void addRevisione(int _g, int _m, int _a,int _kmRilevati);
+		void checkAvviso();
 
 };
 void test_veicolo();

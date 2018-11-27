@@ -37,6 +37,9 @@ void Veicolo::addRevisione(int _g, int _m, int _a,int _kmRilevati){
 	listaRevisione.push_front(Revisione(_g,_m,_a,_kmRilevati,1));
 }
 
+/*void Veicolo::checkVeicolo(){
+}*/
+
 void test_veicolo(){
 	Veicolo v("FF657DD",30,12,2018);
 	v.stampaBollo();

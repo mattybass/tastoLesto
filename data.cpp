@@ -35,6 +35,17 @@ ostream& operator << (ostream& os, const Data& _data){
     return os;
 }
 
+bool Data::operator<(const Data &d1)const{
+	if(anno!=d1.anno)
+		return anno<d1.anno;
+	else{
+		if(mese!=d1.mese)
+			return mese<d1.mese;
+		else
+			return giorno<d1.giorno;
+	}
+}
+
 void test_data(){
 	Data d;
 	cout<<endl<<"DATA ODIERNA: "<<d;

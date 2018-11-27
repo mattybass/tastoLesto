@@ -13,8 +13,8 @@ class Data{
 	public:
 	   Data();
 	   Data(int _g,int _m ,int _a);
+	   bool operator<(const Data &d1);
 	   friend ostream& operator << (ostream& os, const Data& _data);
-	
 };
 ostream& operator << (ostream& os, const Data& _data);
 
