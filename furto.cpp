@@ -11,5 +11,12 @@ void Furto::stampa()const{
 
 void test_furto(){
 	Furto f(30,1,1998,"Mi hanno ciavato la polo","Calavino");
-	f.stampa();
+	cout<<f;
+}
+
+ostream& operator<<(ostream& os, const Furto &f){
+	os<<"DATA DENUNCIA: "<<f.dataDenuncia<<endl<<"LUOGO DENUNCIA: "<<f.luogoDenuncia<<endl<<"NOTE: "<<f.noteDenuncia;
+	
+//	<<"DATA SCADENZA: "<<f.dataScadenzaR<<endl<<"KM RILEVATI: "<<_r.kmRilevati<<endl;
+	return os;
 }

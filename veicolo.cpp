@@ -18,7 +18,7 @@ void Veicolo::addBollo(int _g,int _m,int _a){
 void Veicolo::stampaBollo(){
 	list <Bollo>::iterator iter;
 	for(iter=listaBollo.begin();iter!=listaBollo.end();iter++){
-		(*iter).stampa();
+		cout<<(*iter);
 		cout<<endl;
 	}
 }
