@@ -1,6 +1,5 @@
 #include "data.h"
 
-
 Data::Data(){
 	time_t data = time(0);//data salvata in data
 	tm* tempo = localtime(&data);//inizializza struttura tm
