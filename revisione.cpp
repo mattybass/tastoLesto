@@ -6,11 +6,12 @@ Revisione::Revisione(int _g, int _m, int _a,int _kmRilevati,bool check):dataScad
 	kmRilevati=_kmRilevati;
 }
 
-void Revisione::stampa()const{
-	cout<<"DATA INIZIO: "<<dataInizioR<<endl<<"DATA SCADENZA: "<<dataScadenzaR<<endl<<"KM RILEVATI: "<<kmRilevati;
+ostream& operator <<(ostream& os,const Revisione& _r){
+	os<<"DATA INIZIO: "<<_r.dataInizioR<<endl<<"DATA SCADENZA: "<<_r.dataScadenzaR<<endl<<"KM RILEVATI: "<<_r.kmRilevati<<endl;
+	return os;
 }
 
 void test_revisione(){
 	Revisione r(30,1,2018,20690,0);
-	r.stampa();
+	cout<<r;
 }

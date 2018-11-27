@@ -49,12 +49,12 @@ Bollo::Bollo(int _kw, int _catEuro, int _g,int _m,int _a, bool check):dataInizio
 }
 
 
-void Bollo::stampa()const{
-	cout<<"COSTO BOLLO: "<<costo<<endl<<"DATA INIZIO: "<<dataInizioB<<endl<<"DATA SCADENZA: "<<dataScadenzaB;
+ostream& operator <<(ostream& os,const Bollo& _b){
+	os<<"COSTO BOLLO: "<<_b.costo<<endl<<"DATA INIZIO: "<<_b.dataInizioB<<endl<<"DATA SCADENZA: "<<_b.dataScadenzaB<<endl;
+	return os;
 }
 
 void test_bollo(){
 	Bollo b(80,1,30,1,2018,0);
-	
-	b.stampa();
+	cout<<b;
 }

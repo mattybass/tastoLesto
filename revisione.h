@@ -14,8 +14,9 @@ class Revisione{
 		int kmRilevati;
 	public:
 		Revisione(int _g, int _m, int _a,int _kmRilevati,bool check);
-		void stampa()const;	
+		friend ostream& operator <<(ostream& os,const Revisione& _r);
 };
+ostream& operator <<(ostream& os,const Revisione& _r);
 void test_revisione();
 
 #endif
