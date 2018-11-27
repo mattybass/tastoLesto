@@ -13,7 +13,7 @@ class Revisione{
 		Data dataInizioR;
 		int kmRilevati;
 	public:
-		Revisione(int _g, int _m, int _a,int _kmRilevati);
+		Revisione(int _g, int _m, int _a,int _kmRilevati,bool check);
 		void stampa()const;	
 };
 void test_revisione();

@@ -1,7 +1,11 @@
 #include "bollo.h"
 #include "data.h"
 
-Bollo::Bollo(int _kw, int _catEuro, int _g,int _m,int _a):dataScadenzaB(_g,_m%12+1,int(_m/12)+_a),dataInizioB(_g,_m,_a){
+Bollo::Bollo(int _kw, int _catEuro, int _g,int _m,int _a, bool check):dataInizioB(_g,_m,_a),dataScadenzaB(0,0,0){
+	if(check==0)//primo bollo della macchina
+		dataScadenzaB=Data(_g,_m%12+1,(int(_m/12)+_a));
+	else
+		dataScadenzaB=Data(_g,_m,_a+1);
 	switch(_catEuro){
 		case 0:
 			if(_kw<=100)
@@ -44,11 +48,13 @@ Bollo::Bollo(int _kw, int _catEuro, int _g,int _m,int _a):dataScadenzaB(_g,_m%12
 	}	
 }
 
+
 void Bollo::stampa()const{
 	cout<<"COSTO BOLLO: "<<costo<<endl<<"DATA INIZIO: "<<dataInizioB<<endl<<"DATA SCADENZA: "<<dataScadenzaB;
 }
 
 void test_bollo(){
-	Bollo b(80,1,30,1,2018);
+	Bollo b(80,1,30,1,2018,0);
+	
 	b.stampa();
 }
