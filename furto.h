@@ -14,9 +14,11 @@ class Furto{
 		string noteDenuncia;
 	public:
 		Furto(int _g, int _m, int _a, string _note, string _luogo);
-		void stampa()const;		
+		void stampa()const;
+		friend ostream& operator<<(ostream& os, const Furto &f);	
 };
 void test_furto();
+ostream& operator<<(ostream& os, const Furto &f);
 
 #endif
 
