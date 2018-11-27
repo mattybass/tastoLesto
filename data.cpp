@@ -15,6 +15,17 @@ Data::Data(int _g,int _m ,int _a){
 	anno=_a;
 }
 
+bool operator <(Data const& d1, Data const& d2){
+	if(d1.anno!=d2.anno)
+		return (d1.anno<d2.anno);
+	else{
+		if(d1.mese!=d2.mese)
+			return (d1.mese<d2.mese);
+		else
+			return(d1.giorno<d2.giorno);
+	}
+}
+
 
 ostream& operator << (ostream& os, const Data& _data){
     if(_data.giorno<10){
@@ -35,18 +46,10 @@ ostream& operator << (ostream& os, const Data& _data){
     return os;
 }
 
-bool Data::operator<(const Data &d1)const{
-	if(anno!=d1.anno)
-		return anno<d1.anno;
-	else{
-		if(mese!=d1.mese)
-			return mese<d1.mese;
-		else
-			return giorno<d1.giorno;
-	}
-}
-
 void test_data(){
 	Data d;
 	cout<<endl<<"DATA ODIERNA: "<<d;
+	Data d2(12,4,2900);
+	cout<<endl<<(d2<d);
 }
+

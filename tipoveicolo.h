@@ -1,7 +1,8 @@
 #ifndef __TIPOVEICOLO_H__
 #define __TIPOVEICOLO_H__
+#include "sicurezza.h"
 using namespace std;
-typedef enum {MOTO,AUTO,CAMION,CAMPER}Tipo; //creo un enum che contiene tutti i tipi di veicolo
+typedef enum {MOTO,AUTO,CAMION,CAMPER}Tipo; //creo un enum che contiene tutti i tipi di veicolo possibili
 
 class TipoVeicolo{
 	private:
@@ -12,7 +13,7 @@ class TipoVeicolo{
 		int cilindrata;
 		int kw;
 		int catEuro;
-		//Sicurezza infosic; //da decommentare quando si aggiunge la classe sicurezza
+		Sicurezza infosic; //da decommentare quando si aggiunge la classe sicurezza
 	public:
 		TipoVeicolo(Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro){
 			
