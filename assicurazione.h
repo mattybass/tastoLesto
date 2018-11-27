@@ -1,20 +1,20 @@
 #ifndef __ASSICURAZIONE_H__
 #define __ASSICURAZIONE_H__
 #include <string>
-#include <cstdlib>
 #include <iostream>
-using namespace std;
-
 #include "data.h"
+using namespace std;
 
 class Assicurazione{
 	private:
-		Data dataInizio;
-		Data dataScadenza;
+		Data dataInizioA;
+		Data dataScadenzaA;
 		string compagnia;
 	public:
-		Assicurazione(string _compagnia, int _g,int _m,int _a);
-		setScadenza(int _g,int _m,int _a);
-		setAssicurazione(string _compagnia, int _g,int _m,int _a);
-		
+		friend ostream& operator<<(ostream& os, const Assicurazione &a);
+		Assicurazione(string _compagnia, int _g,int _m,int _a,int durata);
 };
+ostream& operator<<(ostream& os, const Assicurazione &a);
+void test_assicurazione();
+
+#endif
