@@ -11,9 +11,9 @@ class Data{
 	   int giorno,mese,anno;
 	public:
 	   Data(int _g,int _m ,int _a);
-	   friend ostream& operator <<(ostream& os,const Data &d);
+	   friend ostream& operator << (ostream& os, const Data& _data);
 	
 };
-ostream& operator <<(ostream& os,const Data &d);
+ostream& operator << (ostream& os, const Data& _data);
 
 #endif
