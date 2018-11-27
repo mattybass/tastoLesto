@@ -6,8 +6,12 @@ Revisione::Revisione(int _g, int _m, int _a,int _kmRilevati,bool check):dataScad
 	kmRilevati=_kmRilevati;
 }
 
+Data Revisione::get_scadenza()const{
+	return dataScadenzaR;
+}
+
 ostream& operator <<(ostream& os,const Revisione& _r){
-	os<<"DATA INIZIO: "<<_r.dataInizioR<<endl<<"DATA SCADENZA: "<<_r.dataScadenzaR<<endl<<"KM RILEVATI: "<<_r.kmRilevati<<endl;
+	os<<"DATA INIZIO: "<<_r.dataInizioR<<endl<<"DATA SCADENZA: "<<_r.dataScadenzaR<<endl<<"KM RILEVATI: "<<_r.kmRilevati;
 	return os;
 }
 

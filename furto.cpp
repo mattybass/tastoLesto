@@ -1,6 +1,7 @@
 #include "furto.h"
 
-Furto::Furto(int _g, int _m, int _a, string _note, string _luogo):dataDenuncia(_g,_m,_a){
+Furto::Furto(int _g, int _m, int _a, string _luogo, string _note):dataDenuncia(_g,_m,_a){
+	statoDenuncia=1;
 	luogoDenuncia=_luogo;
 	noteDenuncia=_note;
 }
@@ -9,14 +10,25 @@ void Furto::stampa()const{
 	cout<<"DATA DENUNCIA: "<<dataDenuncia<<endl<<"LUOGO DENUNCIA: "<<luogoDenuncia<<endl<<"NOTE: "<<noteDenuncia;
 }
 
+bool Furto::get_statoDenuncia(){
+	return statoDenuncia;
+}
+
+void Furto::disattivaDenuncia(){
+	statoDenuncia=0;
+}
 void test_furto(){
 	Furto f(30,1,1998,"Mi hanno ciavato la polo","Calavino");
 	cout<<f;
 }
 
 ostream& operator<<(ostream& os, const Furto &f){
-	os<<"DATA DENUNCIA: "<<f.dataDenuncia<<endl<<"LUOGO DENUNCIA: "<<f.luogoDenuncia<<endl<<"NOTE: "<<f.noteDenuncia;
+	os<<"DATA DENUNCIA: "<<f.dataDenuncia<<endl<<"LUOGO DENUNCIA: "<<f.luogoDenuncia<<endl<<"NOTE: "<<f.noteDenuncia<<endl<<"STATO DENUNCIA: ";
+	if(f.statoDenuncia==1){
+		os<<"attiva";
+	}
+	else
+		os<<"ritirata";
 	
-//	<<"DATA SCADENZA: "<<f.dataScadenzaR<<endl<<"KM RILEVATI: "<<_r.kmRilevati<<endl;
 	return os;
 }

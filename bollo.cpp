@@ -48,6 +48,9 @@ Bollo::Bollo(int _kw, int _catEuro, int _g,int _m,int _a, bool check):dataInizio
 	}	
 }
 
+Data Bollo::get_scadenza()const{
+	return dataScadenzaB;
+}
 
 ostream& operator <<(ostream& os,const Bollo& _b){
 	os<<"COSTO BOLLO: "<<_b.costo<<endl<<"DATA INIZIO: "<<_b.dataInizioB<<endl<<"DATA SCADENZA: "<<_b.dataScadenzaB<<endl;

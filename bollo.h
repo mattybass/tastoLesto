@@ -10,6 +10,7 @@ class Bollo{
 	public: 
 		Bollo(int _kw, int _catEuro, int _g,int _m,int _a, bool check);//sono valori che servono per calcolare il costo del bollo e vengono passati alla creazione del veicolo	
 		friend ostream& operator <<(ostream& os,const Bollo& _b);
+		Data get_scadenza()const;
 
 };                
 ostream& operator <<(ostream& os,const Bollo& _b);                   

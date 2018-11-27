@@ -12,10 +12,13 @@ class Furto{
 		Data dataDenuncia;
 		string luogoDenuncia;
 		string noteDenuncia;
+		bool statoDenuncia;//1->denuncia attiva //0->denuncia ritirata
 	public:
-		Furto(int _g, int _m, int _a, string _note, string _luogo);
+		Furto(int _g, int _m, int _a, string _luogo, string _note);
 		void stampa()const;
 		friend ostream& operator<<(ostream& os, const Furto &f);	
+		bool get_statoDenuncia();
+		void disattivaDenuncia();
 };
 void test_furto();
 ostream& operator<<(ostream& os, const Furto &f);

@@ -15,6 +15,7 @@ class Revisione{
 	public:
 		Revisione(int _g, int _m, int _a,int _kmRilevati,bool check);
 		friend ostream& operator <<(ostream& os,const Revisione& _r);
+		Data get_scadenza()const;
 };
 ostream& operator <<(ostream& os,const Revisione& _r);
 void test_revisione();

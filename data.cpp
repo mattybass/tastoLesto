@@ -47,8 +47,11 @@ ostream& operator << (ostream& os, const Data& _data){
 
 void test_data(){
 	Data d;
-	cout<<endl<<"DATA ODIERNA: "<<d;
+	cout<<endl<<"DATA ODIERNA: "<<d<<endl;
 	Data d2(12,4,2900);
-	cout<<endl<<(d2<d);
+	if(d<d2)
+		cout<<d<<"<"<<d2;
+	else
+		cout<<d<<">"<<d2;
 }
 
