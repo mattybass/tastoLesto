@@ -22,11 +22,12 @@ class Veicolo{
 	public:
 		Veicolo(string _targa,int _g,int _m,int _a);
 		void addBollo(int _g,int _m,int _a);
+		void stampaBollo();
 		void addAssicurazione(string _compagnia,int _g,int _m,int _a,int _durata);
 		void addFurto(int _g, int _m, int _a, string _note, string _luogo);
 		void addRevisione(int _g, int _m, int _a,int _kmRilevati);
-		
-};
 
+};
+void test_veicolo();
 
 #endif
