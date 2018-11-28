@@ -8,7 +8,7 @@ Luogo::Luogo(string _provincia, string _com, string _via, string _cap, int _nCiv
 	cap=_cap;
 }
 ostream& operator<<(ostream& os,const Luogo& _l){
-	os<<"Provincia: "<<_l.provincia<<endl<<"Comune: "<<_l.comune<<endl<<"Via: "<<_l.via<<endl<<"Numero civico: "<<_l.nCivico<<endl<<"Cap: "<<_l.cap<<endl;
+	os<<_l.comune<<" ("<<_l.provincia<<")"<<endl<<"via "<<_l.via<<", "<<_l.nCivico<<endl<<_l.cap;
 	return os;
 }
 void test_luogo(){
