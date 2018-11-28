@@ -16,7 +16,6 @@ class Veicolo{
 		list <Furto> listaFurto;
 		list <Assicurazione> listaAssicurazione;
 		list <Revisione> listaRevisione;
-//		Proprietario proprietario;  //decommentare quando proprietario è pronto e si è capito come fare!
 		Data dataImmatricolazione;
 	public:
 		Veicolo(string _targa,int _g,int _m,int _a);
@@ -25,10 +24,10 @@ class Veicolo{
 		void addFurto(int _g, int _m, int _a, string _note, string _luogo);
 		void addRevisione(int _g, int _m, int _a,int _kmRilevati);
 		
-		void stampaBollo();
-		void stampaFurto();
-		void stampaAssicurazione();
-		void stampaRevisione();
+		void stampaBollo()const;
+		void stampaFurto()const;
+		void stampaAssicurazione()const;
+		void stampaRevisione()const;
 
 		bool checkBollo()const;
 		bool checkAssicurazione()const;
@@ -38,10 +37,11 @@ class Veicolo{
 		
 		void disattivaDenuncia();
 		string getTarga()const;
-		friend ostream& operator<<(ostream& os, Veicolo& _v);
+		friend ostream& operator<<(ostream& os, const Veicolo& _v);
+		
 
 };
-ostream& operator<<(ostream& os, Veicolo& _v);
+ostream& operator<<(ostream& os, const Veicolo& _v);
 void test_veicolo();
 
 #endif
