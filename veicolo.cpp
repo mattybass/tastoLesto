@@ -68,8 +68,8 @@ void Veicolo::stampaRevisione(){
 	cout<<endl;		
 }
 
-bool Veicolo::checkRevisione(){
-	list <Revisione>::iterator iter;
+bool Veicolo::checkRevisione()const{
+	list <Revisione>::const_iterator iter;
 	iter=listaRevisione.begin();
 	if((*iter).get_scadenza()<Data()){
 		return 1;
@@ -79,8 +79,8 @@ bool Veicolo::checkRevisione(){
 	}
 }	
 
-bool Veicolo::checkAssicurazione(){
-	list <Assicurazione>::iterator iter;
+bool Veicolo::checkAssicurazione()const{
+	list <Assicurazione>::const_iterator iter;
 	iter=listaAssicurazione.begin();
 	if((*iter).get_scadenza()<Data()){
 		return 1;
@@ -90,8 +90,8 @@ bool Veicolo::checkAssicurazione(){
 	}
 }
 
-bool Veicolo::checkBollo(){
-	list <Bollo>::iterator iter;
+bool Veicolo::checkBollo()const{
+	list <Bollo>::const_iterator iter;
 	iter=listaBollo.begin();
 	if((*iter).get_scadenza()<Data()){
 		return 1;
@@ -101,8 +101,8 @@ bool Veicolo::checkBollo(){
 	}
 }
 
-bool Veicolo::checkFurto(){
-	list <Furto>::iterator iter;
+bool Veicolo::checkFurto()const{
+	list <Furto>::const_iterator iter;
 	iter=listaFurto.begin();
 	if(((*iter).get_statoDenuncia()!=1)||iter==listaFurto.end()){ //bool risultava =1 anche senza furti in memoria
 		return 0;
@@ -112,7 +112,7 @@ bool Veicolo::checkFurto(){
 	}
 }
 
-void Veicolo::checkAvviso(){
+void Veicolo::check()const{
 	
 	cout<<endl<<"REVISIONE: ";
 	if(checkRevisione()==1)
@@ -144,6 +144,9 @@ void Veicolo::disattivaDenuncia(){
 	iter=listaFurto.begin();
 	(*iter).disattivaDenuncia();	
 }
+string Veicolo::getTarga()const{
+	return targa;
+}
 
 void test_veicolo(){
 	Veicolo v("FF657DD",20,11,2018);
@@ -163,5 +166,5 @@ void test_veicolo(){
 	v.stampaAssicurazione();
 	v.stampaBollo();
 	cout<<endl<<"----------------------------"<<endl;		
-	v.checkAvviso();
+	v.check();
 }

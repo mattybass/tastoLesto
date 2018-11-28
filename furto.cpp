@@ -5,12 +5,7 @@ Furto::Furto(int _g, int _m, int _a, string _luogo, string _note):dataDenuncia(_
 	luogoDenuncia=_luogo;
 	noteDenuncia=_note;
 }
-
-void Furto::stampa()const{
-	cout<<"DATA DENUNCIA: "<<dataDenuncia<<endl<<"LUOGO DENUNCIA: "<<luogoDenuncia<<endl<<"NOTE: "<<noteDenuncia;
-}
-
-bool Furto::get_statoDenuncia(){
+bool Furto::get_statoDenuncia()const{
 	return statoDenuncia;
 }
 
