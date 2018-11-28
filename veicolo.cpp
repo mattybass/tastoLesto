@@ -28,9 +28,9 @@ void Veicolo::addRevisione(int _g, int _m, int _a,int _kmRilevati){
 	listaRevisione.push_front(Revisione(_g,_m,_a,_kmRilevati,1));
 }
 
-void Veicolo::stampaBollo(){
+void Veicolo::stampaBollo()const{
 	cout<<"BOLLO"<<endl;
-	list <Bollo>::iterator iter;
+	list <Bollo>::const_iterator iter;
 	for(iter=listaBollo.begin();iter!=listaBollo.end();iter++){
 		cout<<(*iter);
 		cout<<endl<<"----------------------------"<<endl;
@@ -38,9 +38,9 @@ void Veicolo::stampaBollo(){
 	cout<<endl;	
 }
 
-void Veicolo::stampaFurto(){
+void Veicolo::stampaFurto()const{
 	cout<<"FURTO"<<endl;
-	list <Furto>::iterator iter;
+	list <Furto>::const_iterator iter;
 	for(iter=listaFurto.begin();iter!=listaFurto.end();iter++){
 		cout<<(*iter);
 		cout<<endl<<"----------------------------"<<endl;
@@ -48,9 +48,9 @@ void Veicolo::stampaFurto(){
 	cout<<endl;
 }
 
-void Veicolo::stampaAssicurazione(){
+void Veicolo::stampaAssicurazione()const{
 	cout<<"ASSICURAZIONE"<<endl;
-	list <Assicurazione>::iterator iter;
+	list <Assicurazione>::const_iterator iter;
 	for(iter=listaAssicurazione.begin();iter!=listaAssicurazione.end();iter++){
 		cout<<(*iter);
 		cout<<endl<<"----------------------------"<<endl;
@@ -58,9 +58,9 @@ void Veicolo::stampaAssicurazione(){
 	cout<<endl;		
 }
 
-void Veicolo::stampaRevisione(){
+void Veicolo::stampaRevisione()const{
 	cout<<"REVISIONE"<<endl;
-	list <Revisione>::iterator iter;
+	list <Revisione>::const_iterator iter;
 	for(iter=listaRevisione.begin();iter!=listaRevisione.end();iter++){
 		cout<<(*iter);
 		cout<<endl<<"----------------------------"<<endl;
@@ -147,10 +147,11 @@ void Veicolo::disattivaDenuncia(){
 string Veicolo::getTarga()const{
 	return targa;
 }
-ostream& operator<<(ostream& os, Veicolo& _v){
+ostream& operator<<(ostream& os, const Veicolo& _v){
 	os<<"Targa: "<<_v.targa<<endl;
 	os<<"Data immatricolazione: "<<_v.dataImmatricolazione<<endl;
 }
+
 
 void test_veicolo(){
 	Veicolo v("FF657DD",20,11,2018);

@@ -37,7 +37,7 @@ void TargaSystem::checkAvvisoPrivati(string _valTarga,string _codFisc,string _pa
 					if(temp2!=(temp->second.end()))//vuol dire che ho trovato la vettura
 					(*temp2).check();
 					else
-						cout<<"Esiste la persona, ma non � proprietaria di questo veicolo!"<<endl;
+						cout<<"Esiste la persona, ma non e' proprietaria di questo veicolo!"<<endl;
 				}
 				else 
 					cout<<"Non esiste questa persona come proprietario di veicoli!"<<endl;
@@ -63,7 +63,7 @@ void TargaSystem::checkAvvisoPrivati(string _valTarga,string _codFisc,string _pa
 					(*temp2).check();
 					}
 					else
-						cout<<"Esiste l'azienda, ma non � proprietaria di questa vettura!"<<endl;
+						cout<<"Esiste l'azienda, ma non e' proprietaria di questa vettura!"<<endl;
 				}
 				else 
 				cout<<"Non esiste questa azienda come proprietaria di veicoli!"<<endl;
@@ -87,8 +87,10 @@ void TargaSystem::checkAvvisoPrivati(string _valTarga,string _codFisc,string _pa
 		if(temp!=(iter->second).end())
 			temp2=iter;
 	}
-	if(temp2!=mapPrivati.end()) //significa che ho trovato l'auto nella mappa di privati - list<veicolo>
-	
+	if(temp2!=mapPrivati.end()){ //significa che ho trovato l'auto nella mappa di privati - list<veicolo>
+		cout<<*liter;
+		//adesso devo stampare l'automobile collegata
+	}
 	
 }*/
 

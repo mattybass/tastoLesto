@@ -1,8 +1,6 @@
 #include "tipoveicolo.h"
 
-int TipoVeicolo::id=0;
 TipoVeicolo::TipoVeicolo(Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag):infosic(_nAirbag,_euroNcap){
-	id++;
 	tipo=_tipo;
 	marca=_marca;
 	modello=_modello;
@@ -15,6 +13,19 @@ int const TipoVeicolo::getKw(){
 }
 int const TipoVeicolo::getCatEuro(){
 	return catEuro;
+}
+bool operator<(const TipoVeicolo& _t, const TipoVeicolo& _t2){
+	if(_t.marca!=_t2.marca){
+		return(_t.marca<_t2.marca);
+	}
+	else{
+		if(_t.modello!=_t2.modello){
+			return(_t.modello<_t2.modello);
+		}
+		else{
+			if(_t.cilindrata!=_t2.cilindrata)
+		}
+	}
 }
 ostream& operator<<(ostream& os,TipoVeicolo const& v){
 	 switch(v.tipo){

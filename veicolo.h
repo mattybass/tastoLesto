@@ -24,10 +24,10 @@ class Veicolo{
 		void addFurto(int _g, int _m, int _a, string _note, string _luogo);
 		void addRevisione(int _g, int _m, int _a,int _kmRilevati);
 		
-		void stampaBollo();
-		void stampaFurto();
-		void stampaAssicurazione();
-		void stampaRevisione();
+		void stampaBollo()const;
+		void stampaFurto()const;
+		void stampaAssicurazione()const;
+		void stampaRevisione()const;
 
 		bool checkBollo()const;
 		bool checkAssicurazione()const;
@@ -37,10 +37,11 @@ class Veicolo{
 		
 		void disattivaDenuncia();
 		string getTarga()const;
-		friend ostream& operator<<(ostream& os, Veicolo& _v);
+		friend ostream& operator<<(ostream& os, const Veicolo& _v);
+		
 
 };
-ostream& operator<<(ostream& os, Veicolo& _v);
+ostream& operator<<(ostream& os, const Veicolo& _v);
 void test_veicolo();
 
 #endif
