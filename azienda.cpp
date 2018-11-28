@@ -5,8 +5,9 @@ Azienda::Azienda(string _nomeA,string _pIva,string _provincia, string _com, stri
 	pIva=_pIva;
 }
 
-ostream& operator <<(ostream& os,Azienda &a){
-	return os<<a.nomeA<<endl<<"P.IVA: "<<a.pIva<<endl<<a.get_residenza();
+ostream& operator <<(ostream& os,const Azienda &a){
+	os<<a.nomeA<<endl<<"P.IVA: "<<a.pIva<<endl<<a.get_residenza();
+	return os;
 }
 
 void test_azienda(){

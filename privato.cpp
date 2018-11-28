@@ -82,20 +82,16 @@ int convertiStringa(string stringa, int inizio, int nCaratteri){
 	
 
 
-ostream& operator <<(ostream& os,Privato &p){
+ostream& operator <<(ostream& os,const Privato &p){
 	os<<p.nome<<" "<<p.cognome<<" ("<<p.codFiscale<<")"<<endl;
 	os<<"DATA DI NASCITA: "<<p.dataNascita<<endl<<"LUOGO DI NASCITA: "<<p.luogoNascita<<endl;
-	os<<"SESSO: "<<p.sesso<<endl<<"RESIDENZA: "<<p.get_residenza();	
+	os<<"SESSO: "<<p.sesso<<endl<<"RESIDENZA: "<<endl<<p.get_residenza();	
 	return os;
 }
 
 void test_privato(){
 	Privato p("Riccardo","Ricci","RCCRCR96T17L378O","Trento","TN","Madruzzo","Roma","38076",23);
 	cout<<p;
-	string s = "1234";
-  stringstream ss(s);
-  
-  int i;
-  ss >> i;
+
 }
 

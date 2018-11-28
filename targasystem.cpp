@@ -72,12 +72,48 @@ void TargaSystem::checkAvviso(string _valTarga,string _codFisc,string _partIva)c
 	}
 }
 void TargaSystem::stampaAuto(string _valTarga)const{
-	map<string, 
-}
-void test_targasystem(){
-	TargaSystem t;
-	cout<<t;
-	t.checkAvviso("CY458KK","RRR");
 	
 }
+
+void TargaSystem::addPropPrivati(string _nome,string _cognome,string _codFiscale,string _luogoNascita,string _provincia, string _com, string _via, string _cap, int _nCivico){
+	map<string,Privato>::const_iterator miter;
+	mapPropPrivati.insert(pair<string,Privato> (_codFiscale,Privato(_nome,_cognome,_codFiscale,_luogoNascita,_provincia,_com,_via,_cap,_nCivico)));
+}
+
+void TargaSystem::addPropAziende(string _nomeA,string _pIva,string _provincia, string _com, string _via, string _cap, int _nCivico){
+	map<string,Azienda>::const_iterator miter;
+	mapPropAziende.insert(pair<string,Azienda> (_pIva,Azienda(_nomeA,_pIva,_provincia,_com,_via,_cap,_nCivico)));
+}
+
+void TargaSystem::stampaPropAziende()const{
+	map<string,Azienda>::const_iterator miter;
+	for(miter=mapPropAziende.begin();miter!=mapPropAziende.end();miter++){
+		cout<<(miter->first)<<endl;
+		cout<<(miter->second)<<endl;
+		cout<<endl<<"-----------------------"<<endl;
+	}	
+}
+
+void TargaSystem::stampaPropPrivati()const{
+	map<string,Privato>::const_iterator miter;
+	for(miter=mapPropPrivati.begin();miter!=mapPropPrivati.end();miter++){
+		cout<<(miter->first)<<endl;
+		cout<<(miter->second)<<endl;
+		cout<<"-----------------------"<<endl;
+	}	
+}
+
+void test_targasystem(){
+	TargaSystem t;
+	cout<<t<<endl<<endl;
+//	t.checkAvviso("CY458KK","RRR");
+//	t.addPropAziende("Mario Povoli elettricista","0000168486","TN","Vallelaghi","al Picarel","38090",11);	
+//	t.addPropAziende("Giacca impianti elettrici","0894598458","TN","Vallelaghi","al Picarel","38090",11);	
+//	t.stampaPropAziende();
+	t.addPropPrivati("Riccardo","Ricci","RCCRCR96T17L378O","Trento","TN","Madruzzo","Roma","38076",23);
+	t.addPropPrivati("Daniele","Mattedi","MTTDNL98A30L378H","Trento","TN","Madruzzo","Roma","38076",23);
+	t.stampaPropPrivati();
+}
+
+
 

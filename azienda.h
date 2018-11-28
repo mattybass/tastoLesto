@@ -10,10 +10,10 @@ class Azienda:public Proprietario{
 		string nomeA;//nome azienda 
 	public:
 		Azienda(string _nomeA,string _pIva,string _provincia, string _com, string _via, string _cap, int _nCivico);
-		friend ostream& operator <<(ostream& os,Azienda &a);
+		friend ostream& operator <<(ostream& os,const Azienda &a);
 };
 
-ostream& operator <<(ostream& os,Azienda &a);
+ostream& operator <<(ostream& os,const Azienda &a);
 void test_azienda();
 
 #endif
