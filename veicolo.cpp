@@ -147,6 +147,10 @@ void Veicolo::disattivaDenuncia(){
 string Veicolo::getTarga()const{
 	return targa;
 }
+ostream& operator<<(ostream& os, Veicolo& _v){
+	os<<"Targa: "<<targa<<endl;
+	os<<"Data immatricolazione: "<<dataImmatricolazione<<endl;
+}
 
 void test_veicolo(){
 	Veicolo v("FF657DD",20,11,2018);

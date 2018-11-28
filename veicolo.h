@@ -16,8 +16,7 @@ class Veicolo{
 		list <Furto> listaFurto;
 		list <Assicurazione> listaAssicurazione;
 		list <Revisione> listaRevisione;
-//		Automobile automobile;
-//		Proprietario proprietario;
+//		Proprietario proprietario;  //decommentare quando proprietario è pronto e si è capito come fare!
 		Data dataImmatricolazione;
 	public:
 		Veicolo(string _targa,int _g,int _m,int _a);
@@ -39,8 +38,10 @@ class Veicolo{
 		
 		void disattivaDenuncia();
 		string getTarga()const;
+		friend ostream& operator<<(ostream& os, Veicolo& _v);
 
 };
+ostream& operator<<(ostream& os, Veicolo& _v);
 void test_veicolo();
 
 #endif
