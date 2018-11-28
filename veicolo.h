@@ -16,7 +16,6 @@ class Veicolo{
 		list <Furto> listaFurto;
 		list <Assicurazione> listaAssicurazione;
 		list <Revisione> listaRevisione;
-		bool avviso[4];//revisione, assicurazione, bollo, furto //probabilmente è inutile!
 //		Automobile automobile;
 //		Proprietario proprietario;
 		Data dataImmatricolazione;
@@ -32,10 +31,10 @@ class Veicolo{
 		void stampaAssicurazione();
 		void stampaRevisione();
 
-		void checkBollo();
-		void checkAssicurazione();
-		void checkFurto();
-		void checkRevisione();
+		bool checkBollo();
+		bool checkAssicurazione();
+		bool checkFurto();
+		bool checkRevisione();
 		void checkAvviso();
 		
 		void disattivaDenuncia();

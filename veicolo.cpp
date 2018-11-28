@@ -68,90 +68,72 @@ void Veicolo::stampaRevisione(){
 	cout<<endl;		
 }
 
-void Veicolo::checkRevisione(){
+bool Veicolo::checkRevisione(){
 	list <Revisione>::iterator iter;
 	iter=listaRevisione.begin();
-//	cout<<"REVISIONE: ";
 	if((*iter).get_scadenza()<Data()){
-		avviso[0]=1;
-//		cout<<"scaduta";
+		return 1;
 	}
 	else{
-		avviso[0]=0;
-//		cout<<"in regola";
+		return 0;
 	}
 }	
 
-void Veicolo::checkAssicurazione(){
+bool Veicolo::checkAssicurazione(){
 	list <Assicurazione>::iterator iter;
 	iter=listaAssicurazione.begin();
-//	cout<<"ASSICURAZIONE: ";
 	if((*iter).get_scadenza()<Data()){
-		avviso[1]=1;
-//		cout<<"scaduta";
+		return 1;
 	}
 	else{
-		avviso[1]=0;
-//		cout<<"in regola";
+		return 0;
 	}
 }
 
-void Veicolo::checkBollo(){
+bool Veicolo::checkBollo(){
 	list <Bollo>::iterator iter;
 	iter=listaBollo.begin();
-//	cout<<"BOLLO: ";
 	if((*iter).get_scadenza()<Data()){
-		avviso[2]=1;
-//		cout<<"scaduto";
+		return 1;
 	}
 	else{
-		avviso[2]=0;
-//		cout<<"in regola";
+		return 0;
 	}
 }
 
-void Veicolo::checkFurto(){
+bool Veicolo::checkFurto(){
 	list <Furto>::iterator iter;
 	iter=listaFurto.begin();
-//	cout<<"FURTO: ";
-//	cout<<(*iter).get_statoDenuncia()<<endl<<endl;
 	if(((*iter).get_statoDenuncia()!=1)||iter==listaFurto.end()){ //bool risultava =1 anche senza furti in memoria
-		avviso[3]=0;
-//		cout<<"nessuna denuncia attiva";
+		return 0;
 	}
 	else{
-		avviso[3]=1;
-//		cout<<"denuncia attiva";
+		return 1;
 	}
 }
 
 void Veicolo::checkAvviso(){
 	
-	checkRevisione();
-	checkAssicurazione();
-	checkBollo();
-	checkFurto();
-	
 	cout<<endl<<"REVISIONE: ";
-	if(avviso[0]==1)
+	if(checkRevisione()==1)
 		cout<<"non in regola";
 	else
 		cout<<"in regola";
 	
 	cout<<endl<<"ASSICURAZIONE: ";
-	if(avviso[1]==1)
+	if(checkAssicurazione()==1)
 		cout<<"non in regola";
 	else
 		cout<<"in regola";
 	
 	cout<<endl<<"BOLLO: ";
-	if(avviso[2]==1)
+	if(checkBollo()==1)
 		cout<<"non in regola";
 	else
 		cout<<"in regola";
 	
 	cout<<endl<<"FURTO: ";
-	if(avviso[3]==1)
+	if(checkFurto()==1)
 		cout<<"denuncia attiva";
 	else
 		cout<<"nessuna denuncia attiva";
@@ -176,8 +158,6 @@ void test_veicolo(){
 	v.addAssicurazione("Itas",27,11,2018,5);
 	v.addAssicurazione("Axa",20,10,2020,1);
 
-	
-	cout<<endl;
 	v.stampaRevisione();
 	v.stampaFurto();	
 	v.stampaAssicurazione();

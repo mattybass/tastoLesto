@@ -7,13 +7,10 @@ Sicurezza::Sicurezza(int _na, int _ncap){
 	euroNcap=_ncap;
 	nAirbag=_na;
 }
-void Sicurezza::stampa()const{
-	cout<<"Il veicolo e' fornito di "<<nAirbag<<" airbag, e possiede ";
-	cout<<euroNcap<<" stelle."<<endl;
-
+int Sicurezza::geteuroNcap()const{
+	return euroNcap;
+}
+int Sicurezza::getnAirbag()const{
+	return nAirbag;
 }
 
-void test_sicurezza(){
-	Sicurezza s(3,5);
-	s.stampa();	
-}
