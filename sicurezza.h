@@ -12,8 +12,7 @@ class Sicurezza{
 	public:
 		Sicurezza();
 		Sicurezza(int _na, int _ncap);
-		void stampa()const;
+		int geteuroNcap()const;
+		int getnAirbag()const;
 };
-
-void test_sicurezza();
 #endif

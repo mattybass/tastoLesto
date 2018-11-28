@@ -6,17 +6,20 @@ typedef enum {MOTO,AUTO,CAMION,CAMPER}Tipo; //creo un enum che contiene tutti i 
 
 class TipoVeicolo{
 	private:
-		int id;
+		static int id;
 		Tipo tipo;
 		string marca;
 		string modello;
 		int cilindrata;
 		int kw;
 		int catEuro;
-		Sicurezza infosic; //da decommentare quando si aggiunge la classe sicurezza
+		Sicurezza infosic; 
 	public:
-		TipoVeicolo(Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro){
-			
-		}
-};
+		TipoVeicolo(Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag);
+		int const getKw(); //non so perche non mi fa usare il const dopo getkw();
+		int const getCatEuro();	
+		friend ostream& operator<<(ostream& os,TipoVeicolo const& v);
+		};
+void test_tipoveicolo();
+ostream& operator<<(ostream& os,TipoVeicolo const& v);
 #endif
