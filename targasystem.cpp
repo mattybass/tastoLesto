@@ -71,7 +71,7 @@ void TargaSystem::checkAvvisoPrivati(string _valTarga,string _codFisc,string _pa
 		}
 	}
 }
-void TargaSystem::stampaAuto(string _valTarga)const{
+/*void TargaSystem::stampaAuto(string _valTarga)const{
 	map<string,list<Veicolo> >::const_iterator iter;
 	map<string,list<Veicolo> >::const_iterator temp2;
 	list<Veicolo>::const_iterator liter;
@@ -90,7 +90,7 @@ void TargaSystem::stampaAuto(string _valTarga)const{
 	if(temp2!=mapPrivati.end()) //significa che ho trovato l'auto nella mappa di privati - list<veicolo>
 	
 	
-}
+}*/
 
 void TargaSystem::addPropPrivati(string _nome,string _cognome,string _codFiscale,string _luogoNascita,string _provincia, string _com, string _via, string _cap, int _nCivico){
 	map<string,Privato>::const_iterator miter;
@@ -118,6 +118,30 @@ void TargaSystem::stampaPropPrivati()const{
 		cout<<(miter->second)<<endl;
 		cout<<"-----------------------"<<endl;
 	}	
+}
+
+void TargaSystem::addPrivati(string _codFiscale,string _targa,int _g,int _m,int _a/*dati veicolo*/){
+	
+	map<string,list<Veicolo> >::iterator miter;
+//	mapPrivati.insert(pair<string,list<Veicolo> > (_codFiscale,Veicolo(_targa,_g,_m,_a)));
+}
+
+void TargaSystem::addAziende(string _pIva,string _targa,int _g,int _m,int _a){
+	map<string,list<Veicolo> >::iterator miter;
+//	mapPrivati.insert(pair<string,list<Veicolo> > (_codFiscale,Veicolo(_targa,_g,_m,_a)));	
+}
+
+TipoVeicolo* TargaSystem::searchTipoVeicolo(Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag){
+	set<TipoVeicolo>::const_iterator iter;
+	iter=setTipoVeicolo.find(TipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag));
+	if(iter!=setTipoVeicolo.end()){
+		return &(*iter); //provare a far ritornare un iteratore vedendo prima se si può fare
+	}
+	else{
+		setTipoVeicolo.insert(TipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag));
+		iter=setTipoVeicolo.find(TipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag));
+		return &(*iter);
+	}
 }
 
 void test_targasystem(){

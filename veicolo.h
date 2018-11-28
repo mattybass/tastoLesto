@@ -16,7 +16,6 @@ class Veicolo{
 		list <Furto> listaFurto;
 		list <Assicurazione> listaAssicurazione;
 		list <Revisione> listaRevisione;
-//		Proprietario proprietario;  //decommentare quando proprietario è pronto e si è capito come fare!
 		Data dataImmatricolazione;
 	public:
 		Veicolo(string _targa,int _g,int _m,int _a);

@@ -5,6 +5,9 @@
 #include <list>
 #include <map>
 #include <string>
+#include <set>
+
+#include "tipoveicolo.h"
 #include "veicolo.h"
 #include "privato.h"
 #include "azienda.h"
@@ -12,6 +15,7 @@ using namespace std;
 class TargaSystem{
 	private:
 		const string versione;
+		set<TipoVeicolo> setTipoVeicolo;
 		map<string,list<Veicolo> > mapPrivati;
 		map<string,list<Veicolo> >mapAziende;
 		map<string,Privato> mapPropPrivati;
@@ -24,11 +28,14 @@ class TargaSystem{
 		void stampaAuto(string _valTarga)const;
 		void addPropPrivati(string _nome,string _cognome,string _codFiscale,string _luogoNascita,string _provincia, string _com, string _via, string _cap, int _nCivico);
 		void addPropAziende(string _nomeA,string _pIva,string _provincia, string _com, string _via, string _cap, int _nCivico);
-/*		void addPrivati(string _codFiscale,)*/
+		void addPrivati(string _codFiscale,string _targa,int _g,int _m,int _a);
+		void addAziende(string _pIva,string _targa,int _g,int _m,int _a);
 		
 		
 		void stampaPropAziende()const;
 		void stampaPropPrivati()const;
+		
+		TipoVeicolo* searchTipoVeicolo(Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag);
 };
 ostream& operator<<(ostream& os, TargaSystem& t);
 void test_targasystem();
