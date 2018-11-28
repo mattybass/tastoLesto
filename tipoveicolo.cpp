@@ -15,19 +15,29 @@ int const TipoVeicolo::getCatEuro(){
 	return catEuro;
 }
 bool operator<(const TipoVeicolo& _t, const TipoVeicolo& _t2){
-	if(_t.marca!=_t2.marca){
+	if(_t.marca!=_t2.marca)
 		return(_t.marca<_t2.marca);
-	}
 	else{
-		if(_t.modello!=_t2.modello){
+		if(_t.modello!=_t2.modello)
 			return(_t.modello<_t2.modello);
-		}
 		else{
 			if(_t.cilindrata!=_t2.cilindrata)
+				return((_t.cilindrata<_t2.cilindrata));			
+			else{
+				if(_t.kw!=_t2.kw)
+					return((_t.kw<_t2.kw));
+				else{
+					if(_t.catEuro!=_t2.catEuro)
+						return((_t.catEuro<_t2.catEuro));
+					else
+						return 0;
+				}
+			}
 		}
 	}
 }
-ostream& operator<<(ostream& os,TipoVeicolo const& v){
+
+ostream& operator<<(ostream& os,const TipoVeicolo & v){
 	 switch(v.tipo){
 	 	case MOTO:
 	 		os<<"Tipo veicolo: MOTO"<<endl;

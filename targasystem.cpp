@@ -137,10 +137,12 @@ set<TipoVeicolo>::iterator TargaSystem::searchTipoVeicolo(Tipo _tipo, string _ma
 	set<TipoVeicolo>::const_iterator iter;
 	iter=setTipoVeicolo.find(TipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag));
 	if(iter!=setTipoVeicolo.end()){
-		return iter; //provare a far ritornare un iteratore vedendo prima se si può fare
+		printf("CIao");
+		return iter;
 	}
 	else{
-		setTipoVeicolo.insert(TipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag));
+		TipoVeicolo v(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag);
+		setTipoVeicolo.insert(v);
 		iter=setTipoVeicolo.find(TipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag));
 		return iter;
 	}
@@ -153,9 +155,14 @@ void test_targasystem(){
 //	t.addPropAziende("Mario Povoli elettricista","0000168486","TN","Vallelaghi","al Picarel","38090",11);	
 //	t.addPropAziende("Giacca impianti elettrici","0894598458","TN","Vallelaghi","al Picarel","38090",11);	
 //	t.stampaPropAziende();
-	t.addPropPrivati("Riccardo","Ricci","RCCRCR96T17L378O","Trento","TN","Madruzzo","Roma","38076",23);
-	t.addPropPrivati("Daniele","Mattedi","MTTDNL98A30L378H","Trento","TN","Madruzzo","Roma","38076",23);
-	t.stampaPropPrivati();
+//	t.addPropPrivati("Riccardo","Ricci","RCCRCR96T17L378O","Trento","TN","Madruzzo","Roma","38076",23);
+//	t.addPropPrivati("Daniele","Mattedi","MTTDNL98A30L378H","Trento","TN","Madruzzo","Roma","38076",23);
+//	t.stampaPropPrivati();
+//	set<TipoVeicolo>::iter;
+	set<TipoVeicolo>::iterator miter;	
+//cout<<*(t.searchTipoVeicolo(AUTO,"Fiat","Punti",1600,90,4,5,5));
+miter=t.searchTipoVeicolo(MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
+
 }
 
 
