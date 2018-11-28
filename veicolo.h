@@ -31,13 +31,14 @@ class Veicolo{
 		void stampaAssicurazione();
 		void stampaRevisione();
 
-		bool checkBollo();
-		bool checkAssicurazione();
-		bool checkFurto();
-		bool checkRevisione();
-		void checkAvviso();
+		bool checkBollo()const;
+		bool checkAssicurazione()const;
+		bool checkFurto()const;
+		bool checkRevisione()const;
+		void check()const;
 		
 		void disattivaDenuncia();
+		string getTarga()const;
 
 };
 void test_veicolo();

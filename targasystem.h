@@ -4,6 +4,7 @@
 #define __TARGASYSTEM_H__
 #include <list>
 #include <map>
+#include <string>
 #include "veicolo.h"
 using namespace std;
 class TargaSystem{
@@ -15,7 +16,8 @@ class TargaSystem{
 	public:
 		TargaSystem(); //avrò solo il costruttore a 0 parametri
 		friend ostream& operator<<(ostream& os, TargaSystem& t);
-		void checkAvviso(string _valTarga);
+		void checkAvviso(string _valTarga,string _codFisc="",string _partIva="")const;
+		void stampaAuto(string _valTarga)const;
 };
 ostream& operator<<(ostream& os, TargaSystem& t);
 void test_targasystem();

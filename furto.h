@@ -15,9 +15,8 @@ class Furto{
 		bool statoDenuncia;//1->denuncia attiva //0->denuncia ritirata
 	public:
 		Furto(int _g, int _m, int _a, string _luogo, string _note);
-		void stampa()const;
 		friend ostream& operator<<(ostream& os, const Furto &f);	
-		bool get_statoDenuncia();
+		bool get_statoDenuncia()const;
 		void disattivaDenuncia();
 };
 void test_furto();
