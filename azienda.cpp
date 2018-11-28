@@ -1,15 +1,15 @@
-#ifndef __AZIENDA_H__
-#define __AZIENDA_H__
-#include "luogo.h"
-#include <string>
+#include "azienda.h"
 
-class Azienda:public Proprietario{
-	private:
-		string nomaAz;//nome azineda
-		int pIva; 
-		Luogo sede; //ubicazione dell'azienda
-	public:
-		Azienda(string _n,int _p, Luogo _l);
-	
-};
-#endif
+Azienda::Azienda(string _nomeA,string _pIva,string _provincia, string _com, string _via, string _cap, int _nCivico):Proprietario(_provincia, _com, _via, _cap, _nCivico){
+	nomeA=_nomeA;
+	pIva=_pIva;
+}
+
+ostream& operator <<(ostream& os,Azienda &a){
+	return os<<a.nomeA<<endl<<"P.IVA: "<<a.pIva<<endl<<a.get_residenza();
+}
+
+void test_azienda(){
+	Azienda a("Mario Povoli elettricista","0000168486","TN","Vallelaghi","al Picarel","38090",11);
+	cout<<a;
+}
