@@ -133,16 +133,16 @@ void TargaSystem::addAziende(string _pIva,string _targa,int _g,int _m,int _a){
 //	mapPrivati.insert(pair<string,list<Veicolo> > (_codFiscale,Veicolo(_targa,_g,_m,_a)));	
 }
 
-TipoVeicolo* TargaSystem::searchTipoVeicolo(Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag){
+set<TipoVeicolo>::iterator TargaSystem::searchTipoVeicolo(Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag){
 	set<TipoVeicolo>::const_iterator iter;
 	iter=setTipoVeicolo.find(TipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag));
 	if(iter!=setTipoVeicolo.end()){
-		return &(*iter); //provare a far ritornare un iteratore vedendo prima se si può fare
+		return iter; //provare a far ritornare un iteratore vedendo prima se si può fare
 	}
 	else{
 		setTipoVeicolo.insert(TipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag));
 		iter=setTipoVeicolo.find(TipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag));
-		return &(*iter);
+		return iter;
 	}
 }
 

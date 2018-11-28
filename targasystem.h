@@ -35,7 +35,7 @@ class TargaSystem{
 		void stampaPropAziende()const;
 		void stampaPropPrivati()const;
 		
-		TipoVeicolo* searchTipoVeicolo(Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag);
+		set<TipoVeicolo>::iterator searchTipoVeicolo(Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag);
 };
 ostream& operator<<(ostream& os, TargaSystem& t);
 void test_targasystem();
