@@ -6,12 +6,16 @@
 #include <map>
 #include <string>
 #include "veicolo.h"
+#include "privato.h"
+#include "azienda.h"
 using namespace std;
 class TargaSystem{
 	private:
 		const string versione;
 		map<string,list<Veicolo> > mapPrivati;
 		map<string,list<Veicolo> > mapAziende;
+		map<string,list<Privato> > mapPropPrivati;
+		map<string,list<Azienda> > mapPropAziende;
 		//Utility u; da decommentare quando creiamo la classe utility che contiene il map di belfiore e eventuali altre utilities
 	public:
 		TargaSystem(); //avrò solo il costruttore a 0 parametri

@@ -71,7 +71,9 @@ void TargaSystem::checkAvviso(string _valTarga,string _codFisc,string _partIva)c
 		}
 	}
 }
-
+void TargaSystem::stampaAuto(string _valTarga)const{
+	map<string, 
+}
 void test_targasystem(){
 	TargaSystem t;
 	cout<<t;
