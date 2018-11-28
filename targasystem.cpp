@@ -8,7 +8,7 @@ ostream& operator<<(ostream& os, TargaSystem& t){
 	os<<"Versione del programma: "<<t.versione<<endl;
 	return os;
 }
-void TargaSystem::checkAvviso(string _valTarga,string _codFisc,string _partIva)const{
+void TargaSystem::checkAvvisoPrivati(string _valTarga,string _codFisc,string _partIva)const{
 	if((_codFisc!="")&&(_partIva!="")){
 		cout<<"Scegli, o codice fiscale o partita iva!"<<endl;
 	}
@@ -63,7 +63,7 @@ void TargaSystem::checkAvviso(string _valTarga,string _codFisc,string _partIva)c
 					(*temp2).check();
 					}
 					else
-						cout<<"Esiste l'azieda, ma non � proprietaria di questa vettura!"<<endl;
+						cout<<"Esiste l'azienda, ma non � proprietaria di questa vettura!"<<endl;
 				}
 				else 
 				cout<<"Non esiste questa azienda come proprietaria di veicoli!"<<endl;

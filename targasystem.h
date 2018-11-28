@@ -12,15 +12,15 @@ using namespace std;
 class TargaSystem{
 	private:
 		const string versione;
-		map<string,Veicolo> mapPrivati;
-		map<string,Veicolo> mapAziende;
+		map<string,list<Veicolo> > mapPrivati;
+		map<string,list<Veicolo> >mapAziende;
 		map<string,Privato> mapPropPrivati;
 		map<string,Azienda> mapPropAziende;
 		//Utility u; da decommentare quando creiamo la classe utility che contiene il map di belfiore e eventuali altre utilities
 	public:
 		TargaSystem(); //avrò solo il costruttore a 0 parametri
 		friend ostream& operator<<(ostream& os, TargaSystem& t);
-		void checkAvviso(string _valTarga,string _codFisc="",string _partIva="")const;
+		void checkAvvisoPrivati(string _valTarga,string _codFisc="",string _partIva="")const;
 		void stampaAuto(string _valTarga)const;
 		void addPropPrivati(string _nome,string _cognome,string _codFiscale,string _luogoNascita,string _provincia, string _com, string _via, string _cap, int _nCivico);
 		void addPropAziende(string _nomeA,string _pIva,string _provincia, string _com, string _via, string _cap, int _nCivico);

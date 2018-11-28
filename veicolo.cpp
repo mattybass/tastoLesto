@@ -148,8 +148,8 @@ string Veicolo::getTarga()const{
 	return targa;
 }
 ostream& operator<<(ostream& os, Veicolo& _v){
-	os<<"Targa: "<<targa<<endl;
-	os<<"Data immatricolazione: "<<dataImmatricolazione<<endl;
+	os<<"Targa: "<<_v.targa<<endl;
+	os<<"Data immatricolazione: "<<_v.dataImmatricolazione<<endl;
 }
 
 void test_veicolo(){
