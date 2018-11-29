@@ -25,11 +25,11 @@ class TargaSystem{
 		TargaSystem(); //avrò solo il costruttore a 0 parametri
 		friend ostream& operator<<(ostream& os, TargaSystem& t);
 		void checkAvvisoPrivati(string _valTarga,string _codFisc="",string _partIva="")const;
-		void stampaAuto(string _valTarga)const;
+		void stampaAuto(string _valTarga);
 		void addPropPrivati(string _nome,string _cognome,string _codFiscale,string _luogoNascita,string _provincia, string _com, string _via, string _cap, int _nCivico);
 		void addPropAziende(string _nomeA,string _pIva,string _provincia, string _com, string _via, string _cap, int _nCivico);
 		void addPrivati(string _codFiscale,string _targa,int _g,int _m,int _a,Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag);
-		void addAziende(string _pIva,string _targa,int _g,int _m,int _a);
+		void addAziende(string _pIva,string _targa,int _g,int _m,int _a,Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag);
 		
 		
 		void stampaPropAziende()const;
