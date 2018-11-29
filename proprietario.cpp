@@ -7,6 +7,4 @@ Proprietario::Proprietario(string _provincia, string _com, string _via, string _
 Luogo Proprietario::get_residenza()const{
 	return residenza;
 }
-/*ostream& operator <<(ostream& os,Proprietario &p){
-	return os<<p.get_residenza();
-}*/
+

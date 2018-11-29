@@ -71,7 +71,7 @@ void TargaSystem::checkAvvisoPrivati(string _valTarga,string _codFisc,string _pa
 		}
 	}
 }
-/*void TargaSystem::stampaAuto(string _valTarga)const{
+void TargaSystem::stampaAuto(string _valTarga)const{
 	map<string,list<Veicolo> >::const_iterator iter;
 	map<string,list<Veicolo> >::const_iterator temp2;
 	list<Veicolo>::const_iterator liter;
@@ -87,20 +87,34 @@ void TargaSystem::checkAvvisoPrivati(string _valTarga,string _codFisc,string _pa
 		if(temp!=(iter->second).end())
 			temp2=iter;
 	}
-	if(temp2!=mapPrivati.end()){ //significa che ho trovato l'auto nella mappa di privati - list<veicolo>
-		cout<<*liter;
-		//adesso devo stampare l'automobile collegata
+	if(temp2!=mapPrivati.end()){ //significa che ho trovato l'auto nella mappa di privato - list<veicolo>
+		cout<<*liter; //adesso devo stampare l'automobile collegata
+	}
+	else{
+		for(iter=mapAziende.begin();iter!=mapAziende.end();++iter){
+		temp=(iter->second).end();
+		for(liter=(iter->second).begin();liter!=(iter->second).end();++liter){
+			if((*liter).getTarga()==_valTarga){
+				temp=liter;
+			}
+		}
+		if(temp!=(iter->second).end())
+			temp2=iter;
+	}
+	if(temp2!=mapAziende.end()){ //significa che ho trovato l'auto nella mappa di azienda - list<veicolo>
+		cout<<*liter; //adesso devo stampare l'automobile collegata
+	}
+	else //non ho trovato la vettura!
+		cout<<"Non è stata trovata alcuna vettura con questa targa!"<<endl;
 	}
 	
-}*/
-
+}
+//QUESTE DUE FUNZIONI SERVONO PER POPOLARE LE MAP DI PROPRIETARI (PRIVATI O AZIENDE)
 void TargaSystem::addPropPrivati(string _nome,string _cognome,string _codFiscale,string _luogoNascita,string _provincia, string _com, string _via, string _cap, int _nCivico){
-	map<string,Privato>::const_iterator miter;
 	mapPropPrivati.insert(pair<string,Privato> (_codFiscale,Privato(_nome,_cognome,_codFiscale,_luogoNascita,_provincia,_com,_via,_cap,_nCivico)));
 }
 
 void TargaSystem::addPropAziende(string _nomeA,string _pIva,string _provincia, string _com, string _via, string _cap, int _nCivico){
-	map<string,Azienda>::const_iterator miter;
 	mapPropAziende.insert(pair<string,Azienda> (_pIva,Azienda(_nomeA,_pIva,_provincia,_com,_via,_cap,_nCivico)));
 }
 

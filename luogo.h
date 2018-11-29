@@ -1,6 +1,6 @@
 #ifndef __LUOGO_H__
 #define __LUOGO_H__
-#include <string>
+
 #include <iostream>
 using namespace std;
 class Luogo{

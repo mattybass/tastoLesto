@@ -150,6 +150,9 @@ string Veicolo::getTarga()const{
 ostream& operator<<(ostream& os, const Veicolo& _v){
 	os<<"Targa: "<<_v.targa<<endl;
 	os<<"Data immatricolazione: "<<_v.dataImmatricolazione<<endl;
+	set<TipoVeicolo>::const_iterator temp;
+	temp=_v.tipoVeicoloCollegato;
+	cout<<*temp;
 }
 
 

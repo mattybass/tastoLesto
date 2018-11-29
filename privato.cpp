@@ -8,23 +8,17 @@ Privato::Privato(string _nome,string _cognome,string _codFiscale,string _luogoNa
 	codFiscale=_codFiscale;
 	luogoNascita=_luogoNascita;
 	int _gg,_mm,_aa;
-	
-//	char c=codFiscale.at(9);
-/*	string sEstratta=codFiscale.substr(9,1);
-	stringstream ss(sEstratta);
-	int i;
-  	ss >> i;*/
+
+
 	if((convertiStringa(codFiscale,9,1)) < 4){
 		sesso='M';
 		_gg=convertiStringa(codFiscale,9,2);
 		_aa=convertiStringa(codFiscale,6,2);
-	//	dataNascita=Data((convertiStringa(codFiscale,9,2)),1,(convertiStringa(codFiscale,6,2)));
 	}
 	else{
 		sesso='F';
 		_gg=convertiStringa(codFiscale,9,2)-40;
 		_aa=convertiStringa(codFiscale,6,2);
-	//	dataNascita=Data((convertiStringa(codFiscale,9,2))-40,1,(convertiStringa(codFiscale,6,2)));
 	}
 	switch(codFiscale.at(8)){
 		case 'A':

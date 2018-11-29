@@ -20,7 +20,7 @@ class Veicolo{
 		list <Assicurazione> listaAssicurazione;
 		list <Revisione> listaRevisione;
 		Data dataImmatricolazione;
-		set<TipoVeicolo>::iterator tipoVeicoloCollegato;
+		set<TipoVeicolo>::const_iterator tipoVeicoloCollegato;
 	public:
 		Veicolo(string _targa,int _g,int _m,int _a);
 		void addBollo(int _g,int _m,int _a);
