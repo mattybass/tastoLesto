@@ -22,7 +22,7 @@ class Veicolo{
 		Data dataImmatricolazione;
 		set<TipoVeicolo>::iterator tipoVeicoloCollegato;
 	public:
-		Veicolo(string _targa,int _g,int _m,int _a);
+		Veicolo(string _targa,set<TipoVeicolo>::iterator _tipoVeicoloCollegato,int _g,int _m,int _a);
 		void addBollo(int _g,int _m,int _a);
 		void addAssicurazione(string _compagnia,int _g,int _m,int _a,int _durata);
 		void addFurto(int _g, int _m, int _a, string _note, string _luogo);

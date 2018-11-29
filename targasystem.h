@@ -17,7 +17,7 @@ class TargaSystem{
 		const string versione;
 		set<TipoVeicolo> setTipoVeicolo;
 		map<string,list<Veicolo> > mapPrivati;
-		map<string,list<Veicolo> >mapAziende;
+		map<string,list<Veicolo> > mapAziende;
 		map<string,Privato> mapPropPrivati;
 		map<string,Azienda> mapPropAziende;
 		//Utility u; da decommentare quando creiamo la classe utility che contiene il map di belfiore e eventuali altre utilities
@@ -28,7 +28,7 @@ class TargaSystem{
 		void stampaAuto(string _valTarga)const;
 		void addPropPrivati(string _nome,string _cognome,string _codFiscale,string _luogoNascita,string _provincia, string _com, string _via, string _cap, int _nCivico);
 		void addPropAziende(string _nomeA,string _pIva,string _provincia, string _com, string _via, string _cap, int _nCivico);
-		void addPrivati(string _codFiscale,string _targa,int _g,int _m,int _a);
+		void addPrivati(string _codFiscale,string _targa,int _g,int _m,int _a,Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag);
 		void addAziende(string _pIva,string _targa,int _g,int _m,int _a);
 		
 		

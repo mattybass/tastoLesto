@@ -3,11 +3,11 @@ TargaSystem::TargaSystem():versione("1.0"){
 	
 }
 
-
 ostream& operator<<(ostream& os, TargaSystem& t){
 	os<<"Versione del programma: "<<t.versione<<endl;
 	return os;
 }
+
 void TargaSystem::checkAvvisoPrivati(string _valTarga,string _codFisc,string _partIva)const{
 	if((_codFisc!="")&&(_partIva!="")){
 		cout<<"Scegli, o codice fiscale o partita iva!"<<endl;
@@ -71,6 +71,7 @@ void TargaSystem::checkAvvisoPrivati(string _valTarga,string _codFisc,string _pa
 		}
 	}
 }
+
 /*void TargaSystem::stampaAuto(string _valTarga)const{
 	map<string,list<Veicolo> >::const_iterator iter;
 	map<string,list<Veicolo> >::const_iterator temp2;
@@ -122,9 +123,14 @@ void TargaSystem::stampaPropPrivati()const{
 	}	
 }
 
-void TargaSystem::addPrivati(string _codFiscale,string _targa,int _g,int _m,int _a/*dati veicolo*/){
-	
+void TargaSystem::addPrivati(string _codFiscale,string _targa,int _g,int _m,int _a,Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag){
 	map<string,list<Veicolo> >::iterator miter;
+	set<TipoVeicolo>::iterator iter;
+	miter=mapPrivati.find(_codFiscale);
+	iter=searchTipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag);
+	if(miter!=mapPrivati.end()){
+		(miter->second).push_front(Veicolo(_targa,iter,_g,_m,_a));
+	}
 //	mapPrivati.insert(pair<string,list<Veicolo> > (_codFiscale,Veicolo(_targa,_g,_m,_a)));
 }
 
@@ -137,7 +143,6 @@ set<TipoVeicolo>::iterator TargaSystem::searchTipoVeicolo(Tipo _tipo, string _ma
 	set<TipoVeicolo>::const_iterator iter;
 	iter=setTipoVeicolo.find(TipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag));
 	if(iter!=setTipoVeicolo.end()){
-		printf("CIao");
 		return iter;
 	}
 	else{
@@ -150,18 +155,10 @@ set<TipoVeicolo>::iterator TargaSystem::searchTipoVeicolo(Tipo _tipo, string _ma
 
 void test_targasystem(){
 	TargaSystem t;
-	cout<<t<<endl<<endl;
-//	t.checkAvviso("CY458KK","RRR");
-//	t.addPropAziende("Mario Povoli elettricista","0000168486","TN","Vallelaghi","al Picarel","38090",11);	
-//	t.addPropAziende("Giacca impianti elettrici","0894598458","TN","Vallelaghi","al Picarel","38090",11);	
-//	t.stampaPropAziende();
-//	t.addPropPrivati("Riccardo","Ricci","RCCRCR96T17L378O","Trento","TN","Madruzzo","Roma","38076",23);
-//	t.addPropPrivati("Daniele","Mattedi","MTTDNL98A30L378H","Trento","TN","Madruzzo","Roma","38076",23);
-//	t.stampaPropPrivati();
-//	set<TipoVeicolo>::iter;
-	set<TipoVeicolo>::iterator miter;	
-//cout<<*(t.searchTipoVeicolo(AUTO,"Fiat","Punti",1600,90,4,5,5));
-miter=t.searchTipoVeicolo(MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
+	t.addPrivati("MTTDNL98A30378H","DN987EE",30,1,2018,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
+	t.stampaAuto("DN987EE");
+	
+
 
 }
 
