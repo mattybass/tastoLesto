@@ -71,12 +71,12 @@ void TargaSystem::checkAvvisoPrivati(string _valTarga,string _codFisc,string _pa
 		}
 	}
 }
-//FUNZIONE DI RICERCA TARGA IN TUTTO IL DATABASE
-void TargaSystem::stampaAuto(string _valTarga){
-	map<string,list<Veicolo> >::iterator iter;
-	map<string,list<Veicolo> >::iterator temp2;
-	list<Veicolo>::iterator liter;
-	list<Veicolo>::iterator temp;
+//FUNZIONE DI STAMPA TARGA IN TUTTO IL DATABASE
+void TargaSystem::stampaAuto(string _valTarga)const{
+	map<string,list<Veicolo> >::const_iterator iter;
+	map<string,list<Veicolo> >::const_iterator temp2;
+	list<Veicolo>::const_iterator liter;
+	list<Veicolo>::const_iterator temp;
 	
 	temp2=mapPrivati.end();
 	iter=mapPrivati.begin();
@@ -120,7 +120,55 @@ void TargaSystem::stampaAuto(string _valTarga){
 			
 		}
 }
-
+//CONTROLLA SE LA TARGA E' GIA' PRESENTE IN DATABASE
+bool TargaSystem::searchAuto(string _valTarga)const{
+	map<string,list<Veicolo> >::const_iterator iter;
+	map<string,list<Veicolo> >::const_iterator temp2;
+	list<Veicolo>::const_iterator liter;
+	list<Veicolo>::const_iterator temp;
+	
+	temp2=mapPrivati.end();
+	iter=mapPrivati.begin();
+	while(iter!=mapPrivati.end()&&temp2==mapPrivati.end()){
+		temp=(iter->second).end();
+		liter=(iter->second).begin();
+		while(liter!=(iter->second).end()&&temp==(iter->second).end()){
+			if((*liter).getTarga()==_valTarga){
+				temp=liter;
+			}
+			liter++;
+		}
+		if(temp!=(iter->second).end()){
+			temp2=iter;
+		}
+		iter++;
+	}
+	if(temp2!=mapPrivati.end())
+		return true;
+	else{
+		temp2=mapAziende.end();
+		iter=mapAziende.begin();
+		while(iter!=mapAziende.end()&&temp2==mapAziende.end()){
+			temp=(iter->second).end();
+			liter=(iter->second).begin();
+			while(liter!=(iter->second).end()&&temp==(iter->second).end()){
+				if((*liter).getTarga()==_valTarga){
+					temp=liter;
+				}
+				liter++;
+			}
+			if(temp!=(iter->second).end()){
+				temp2=iter;
+			}
+			iter++;
+		}
+		if(temp2!=mapAziende.end())
+			return true;
+		else
+			return false;
+			
+		}
+}
 
 //QUESTE DUE FUNZIONI SERVONO PER POPOLARE LE MAP DI PROPRIETARI (PRIVATI O AZIENDE)
 void TargaSystem::addPropPrivati(string _nome,string _cognome,string _codFiscale,string _luogoNascita,string _provincia, string _com, string _via, string _cap, int _nCivico){
@@ -150,34 +198,42 @@ void TargaSystem::stampaPropPrivati()const{
 }
 
 void TargaSystem::addPrivati(string _codFiscale,string _targa,int _g,int _m,int _a,Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag){
-	map<string,list<Veicolo> >::iterator miter;
-	list<Veicolo> listaV;
-	set<TipoVeicolo>::iterator iter;
-	miter=mapPrivati.find(_codFiscale);
-	iter=searchTipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag);
-	if(miter!=mapPrivati.end()){
-		(miter->second).push_front(Veicolo(_targa,iter,_g,_m,_a));
+	if(searchAuto(_targa)==0){
+		map<string,list<Veicolo> >::iterator miter;
+		list<Veicolo> listaV;
+		set<TipoVeicolo>::iterator iter;
+		miter=mapPrivati.find(_codFiscale);
+		iter=searchTipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag);
+		if(miter!=mapPrivati.end()){
+			(miter->second).push_front(Veicolo(_targa,iter,_g,_m,_a));
+		}
+		else{
+			listaV.push_front(Veicolo(_targa,iter,_g,_m,_a));
+			mapPrivati.insert(make_pair(_codFiscale,listaV));
+		}
 	}
-	else{
-		listaV.push_front(Veicolo(_targa,iter,_g,_m,_a));
-		mapPrivati.insert(make_pair(_codFiscale,listaV));
-	}
+	else
+		cout<<_targa<<" ha gia' un proprietario"<<endl;
 }
 
 void TargaSystem::addAziende(string _pIva,string _targa,int _g,int _m,int _a,Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag){
-	map<string,list<Veicolo> >::iterator miter;
-	list<Veicolo> listaV;
-	set<TipoVeicolo>::iterator iter;
-	miter=mapAziende.find(_pIva);
-	iter=searchTipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag);
-	if(miter!=mapAziende.end()){
-		(miter->second).push_front(Veicolo(_targa,iter,_g,_m,_a));
+	if(searchAuto(_targa)==0){	
+		map<string,list<Veicolo> >::iterator miter;
+		list<Veicolo> listaV;
+		set<TipoVeicolo>::iterator iter;
+		miter=mapAziende.find(_pIva);
+		iter=searchTipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag);
+		if(miter!=mapAziende.end()){
+			(miter->second).push_front(Veicolo(_targa,iter,_g,_m,_a));
+		}
+		else{
+			listaV.push_front(Veicolo(_targa,iter,_g,_m,_a));
+			mapAziende.insert(make_pair(_pIva,listaV));
+		}
 	}
-	else{
-		listaV.push_front(Veicolo(_targa,iter,_g,_m,_a));
-		mapAziende.insert(make_pair(_pIva,listaV));
-	}
-}
+	else
+		cout<<_targa<<" ha gia' un proprietario"<<endl;
+}		
 
 
 set<TipoVeicolo>::iterator TargaSystem::searchTipoVeicolo(Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag){
@@ -197,6 +253,7 @@ set<TipoVeicolo>::iterator TargaSystem::searchTipoVeicolo(Tipo _tipo, string _ma
 void test_targasystem(){
 	TargaSystem t;
 	t.addPrivati("MTTDNL98A30L378H","DN987EE",30,1,2018,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
+	t.addPrivati("BBBBBBB","DN987EE",30,1,2018,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
 	t.addPrivati("MTTDNL98A30L378H","CS429PN",20,1,2005,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
 	t.addPrivati("AAAA","TE746TT",20,1,2005,MOTO,"Kawasakj","Ninja",1500,50,4,5,0);
 	t.addPrivati("bbbb","DD987DD",20,1,2005,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
