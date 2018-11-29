@@ -171,6 +171,66 @@ bool TargaSystem::searchAuto(string _valTarga)const{
 }
 
 //QUESTE DUE FUNZIONI SERVONO PER POPOLARE LE MAP DI PROPRIETARI (PRIVATI O AZIENDE)
+
+void TargaSystem::stampaProp(string _valTarga)const{
+	map<string,list<Veicolo> >::const_iterator iter;
+	map<string,list<Veicolo> >::const_iterator temp2;
+	list<Veicolo>::const_iterator liter;
+	list<Veicolo>::const_iterator temp;
+	map<string,Privato>::const_iterator iterPrivato;
+	map<string,Azienda>::const_iterator iterAzienda;
+	
+	temp2=mapPrivati.end();
+	iter=mapPrivati.begin();
+	while(iter!=mapPrivati.end()&&temp2==mapPrivati.end()){
+		temp=(iter->second).end();
+		liter=(iter->second).begin();
+		while(liter!=(iter->second).end()&&temp==(iter->second).end()){
+			if((*liter).getTarga()==_valTarga){
+				temp=liter;
+			}
+			liter++;
+		}
+		if(temp!=(iter->second).end()){
+			temp2=iter;
+		}
+		iter++;
+	}
+	if(temp2!=mapPrivati.end()){
+		iterPrivato=mapPropPrivati.find(temp2->first);
+		if(iterPrivato!=mapPropPrivati.end()){
+			cout<<*(iterPrivato->second);
+		}
+	}	
+	else{
+		temp2=mapAziende.end();
+		iter=mapAziende.begin();
+		while(iter!=mapAziende.end()&&temp2==mapAziende.end()){
+			temp=(iter->second).end();
+			liter=(iter->second).begin();
+			while(liter!=(iter->second).end()&&temp==(iter->second).end()){
+				if((*liter).getTarga()==_valTarga){
+					temp=liter;
+				}
+				liter++;
+			}
+			if(temp!=(iter->second).end()){
+				temp2=iter;
+			}
+			iter++;
+		}
+		if(temp2!=mapAziende.end()){
+			iterAzienda=mapPropAziende.find(temp2->first);
+			if(iterAzienda!=mapPropAziende.end()){
+				cout<<*(iterAzienda->second);
+			}
+		}
+		else
+			cout<<"Targa non trovata"<<endl;
+		}
+}
+
+
 void TargaSystem::addPropPrivati(string _nome,string _cognome,string _codFiscale,string _luogoNascita,string _provincia, string _com, string _via, string _cap, int _nCivico){
 	mapPropPrivati.insert(pair<string,Privato> (_codFiscale,Privato(_nome,_cognome,_codFiscale,_luogoNascita,_provincia,_com,_via,_cap,_nCivico)));
 }
