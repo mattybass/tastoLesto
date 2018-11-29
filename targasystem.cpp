@@ -95,11 +95,13 @@ for(iter=mapPrivati.begin();iter!=mapPrivati.end();iter++){
 			if((*liter).getTarga()==_valTarga){
 				temp=liter;
 				cout<<"C";
+				break;
 			}
 		}
 		if(temp!=(iter->second).end()){
 			cout<<"D";
 			temp2=iter;
+			break;
 		}
 	}
 	if(temp2!=mapPrivati.end()){ //significa che ho trovato l'auto nella mappa di privato - list<veicolo>
@@ -206,22 +208,26 @@ set<TipoVeicolo>::iterator TargaSystem::searchTipoVeicolo(Tipo _tipo, string _ma
 
 void test_targasystem(){
 	TargaSystem t;
-//	t.addPrivati("MTTDNL98A30L378H","DN987EE",30,1,2018,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
+	t.addPrivati("MTTDNL98A30L378H","DN987EE",30,1,2018,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
 	t.addPrivati("MTTDNL98A30L378H","CS429PN",20,1,2005,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
-//	t.addAziende("bbbb","DD987DD",20,1,2005,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
-//	t.addAziende("bbbb","RR567RR",20,1,2005,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
-//	t.addAziende("bbbb","TT565TT",20,1,2005,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
+	t.addPrivati("AAAA","TE746TT",20,1,2005,MOTO,"Kawasakj","Ninja",1500,50,4,5,0);
+	t.addPrivati("bbbb","DD987DD",20,1,2005,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
+	t.addPrivati("bbbb","RR567RR",20,1,2005,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
+	t.addPrivati("bbbb","TT565TT",20,1,2005,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
 	cout<<endl;
 	t.stampaAuto("primo");
 	cout<<endl;
 	t.stampaAuto("CS429PN");
 	cout<<endl;
-//	t.stampaAuto("DD987DD");
+	t.stampaAuto("DD987DD");
 	cout<<endl;
-//	t.stampaAuto("RR567RR");
+	t.stampaAuto("RR567RR");
 	cout<<endl;
-//	t.stampaAuto("TT565TT");		
-//	t.stampaAuto("DN987EE");
+	t.stampaAuto("TT565TT");		
+	cout<<endl;	
+	t.stampaAuto("DN987EE");
+	cout<<endl;	
+	t.stampaAuto("TE746TT");
 	
 
 

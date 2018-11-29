@@ -59,8 +59,8 @@ ostream& operator<<(ostream& os,const TipoVeicolo & v){
 	 os<<"Modello: "<<v.modello<<endl;
 	 os<<"Cilindrata: "<<v.cilindrata<<"cc"<<endl;
 	 os<<"Kilowatt: "<<v.kw<<endl;
-	 os<<"Categoria Euro: "<<v.catEuro<<endl<<endl;
-	 os<<"Informazioni sulla sicurezza"<<endl;
+	 os<<"Categoria Euro: "<<v.catEuro<<endl;
+//	 os<<"Informazioni sulla sicurezza"<<endl;
 	 os<<"Stelle euroNcap: "<<v.infosic.geteuroNcap()<<endl;
 	 os<<"Numero airbag: "<<v.infosic.getnAirbag()<<endl;
 	 return os;
