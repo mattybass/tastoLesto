@@ -5,8 +5,9 @@
 #include <string>
 #include "data.h"
 
-Veicolo::Veicolo(string _targa,int _g,int _m,int _a):dataImmatricolazione(_g,_m,_a){//in veicolo passo la data di immatricolazione
+Veicolo::Veicolo(string _targa,set<TipoVeicolo>::iterator _tipoVeicoloCollegato,int _g,int _m,int _a):dataImmatricolazione(_g,_m,_a){//in veicolo passo la data di immatricolazione
 	targa=_targa;
+	tipoVeicoloCollegato=_tipoVeicoloCollegato;
 	listaBollo.push_front(Bollo(90,2,_g,_m,_a,0));
 	listaRevisione.push_front(Revisione(_g,_m,_a,0,0));	
 }
@@ -157,7 +158,7 @@ ostream& operator<<(ostream& os, const Veicolo& _v){
 
 
 void test_veicolo(){
-	Veicolo v("FF657DD",20,11,2018);
+/*	Veicolo v("FF657DD",20,11,2018);
 //	v.addBollo(3,10,2018);
 //	v.stampaBollo();
 	v.addFurto(30,1,2018,"Calavino","uomo nero");
@@ -174,5 +175,5 @@ void test_veicolo(){
 	v.stampaAssicurazione();
 	v.stampaBollo();
 	cout<<endl<<"----------------------------"<<endl;		
-	v.check();
+	v.check();*/
 }
