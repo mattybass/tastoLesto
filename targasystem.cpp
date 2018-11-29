@@ -71,69 +71,57 @@ void TargaSystem::checkAvvisoPrivati(string _valTarga,string _codFisc,string _pa
 		}
 	}
 }
-
+//FUNZIONE DI RICERCA TARGA IN TUTTO IL DATABASE
 void TargaSystem::stampaAuto(string _valTarga){
 	map<string,list<Veicolo> >::iterator iter;
 	map<string,list<Veicolo> >::iterator temp2;
 	list<Veicolo>::iterator liter;
 	list<Veicolo>::iterator temp;
 	
-	//temp=(iter->second).end();
-	
 	temp2=mapPrivati.end();
-//	iter=mapPrivati.begin();
-/*	while(iter!=mapPrivati.end() || temp2!=mapPrivati.end()){
-		while
-		
-	}*/
-for(iter=mapPrivati.begin();iter!=mapPrivati.end();iter++){
+	iter=mapPrivati.begin();
+	while(iter!=mapPrivati.end()&&temp2==mapPrivati.end()){
 		temp=(iter->second).end();
-		//temp2=mapPrivati.end();
-		cout<<"A";
-		for(liter=(iter->second).begin();liter!=(iter->second).end();liter++){
-			cout<<"B";
+		liter=(iter->second).begin();
+		while(liter!=(iter->second).end()&&temp==(iter->second).end()){
 			if((*liter).getTarga()==_valTarga){
 				temp=liter;
-				cout<<"C";
-				break;
 			}
+			liter++;
 		}
 		if(temp!=(iter->second).end()){
-			cout<<"D";
 			temp2=iter;
-			break;
 		}
+		iter++;
 	}
-	if(temp2!=mapPrivati.end()){ //significa che ho trovato l'auto nella mappa di privato - list<veicolo>
-		cout<<"E";
-		cout<<*temp; //adesso devo stampare l'automobile collegata
-	}
+	if(temp2!=mapPrivati.end())
+		cout<<*temp;
 	else{
-		cout<<"5";
 		temp2=mapAziende.end();
-		
-		for(iter=mapAziende.begin();iter!=mapAziende.end();++iter){
+		iter=mapAziende.begin();
+		while(iter!=mapAziende.end()&&temp2==mapAziende.end()){
 			temp=(iter->second).end();
-			cout<<"6";
-			for(liter=(iter->second).begin();liter!=(iter->second).end();++liter){
+			liter=(iter->second).begin();
+			while(liter!=(iter->second).end()&&temp==(iter->second).end()){
 				if((*liter).getTarga()==_valTarga){
 					temp=liter;
 				}
-			}	
-			if(temp!=(iter->second).end()){
-				cout<<"7";
-				temp2=iter;						
+				liter++;
 			}
+			if(temp!=(iter->second).end()){
+				temp2=iter;
+			}
+			iter++;
 		}
-		if(temp2!=mapAziende.end()){ //significa che ho trovato l'auto nella mappa di azienda - list<veicolo>
-			cout<<"8";
-			cout<<*temp; //adesso devo stampare l'automobile collegata //qua c'è l'errore
+		if(temp2!=mapAziende.end())
+			cout<<*temp;
+		else
+			cout<<"Auto non presente!"<<endl;
+			
 		}
-		else //non ho trovato la vettura!
-			cout<<"Non ï¿½ stata trovata alcuna vettura con questa targa!"<<endl;
-	}
-	
 }
+
+
 //QUESTE DUE FUNZIONI SERVONO PER POPOLARE LE MAP DI PROPRIETARI (PRIVATI O AZIENDE)
 void TargaSystem::addPropPrivati(string _nome,string _cognome,string _codFiscale,string _luogoNascita,string _provincia, string _com, string _via, string _cap, int _nCivico){
 	mapPropPrivati.insert(pair<string,Privato> (_codFiscale,Privato(_nome,_cognome,_codFiscale,_luogoNascita,_provincia,_com,_via,_cap,_nCivico)));
@@ -214,6 +202,10 @@ void test_targasystem(){
 	t.addPrivati("bbbb","DD987DD",20,1,2005,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
 	t.addPrivati("bbbb","RR567RR",20,1,2005,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
 	t.addPrivati("bbbb","TT565TT",20,1,2005,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
+	t.addAziende("ziopino","YR747YE",20,1,2005,CAMPER,"Ford","Turistico",2000,50,1,4,0);
+	t.addAziende("ziopino","UE876TT",20,1,2005,CAMPER,"Ford","Turistico",2000,50,1,4,0);
+	t.addAziende("iaiaiaia","YH543FF",20,1,2005,CAMPER,"Ford","Turistico",2000,50,1,4,0);
+	t.addAziende("qooqoqoqqo","UJ654GG",20,1,2005,CAMPER,"Ford","Turistico",2000,50,1,4,0);
 	cout<<endl;
 	t.stampaAuto("primo");
 	cout<<endl;
@@ -228,6 +220,18 @@ void test_targasystem(){
 	t.stampaAuto("DN987EE");
 	cout<<endl;	
 	t.stampaAuto("TE746TT");
+	cout<<endl;	
+	t.stampaAuto("YR747YE");
+	cout<<endl;	
+	t.stampaAuto("UE876TT");
+	cout<<endl;	
+	t.stampaAuto("YH543FF");
+	cout<<endl;	
+	t.stampaAuto("UJ654GG");
+	cout<<endl;	
+	t.stampaAuto("mattydemocristiano");
+	
+	
 	
 
 
