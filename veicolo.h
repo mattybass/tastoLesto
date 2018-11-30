@@ -2,8 +2,8 @@
 #define __VEICOLO_H__
 
 #include <list>
-#include <string>
 #include <set>
+#include <string>
 
 #include "tipoveicolo.h"
 #include "bollo.h"
@@ -11,6 +11,8 @@
 #include "furto.h"
 #include "assicurazione.h"
 #include "data.h"
+
+using namespace std;
 
 class Veicolo{
 	private:
@@ -46,6 +48,5 @@ class Veicolo{
 
 };
 ostream& operator<<(ostream& os, const Veicolo& _v);
-void test_veicolo();
 
 #endif

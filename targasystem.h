@@ -51,7 +51,6 @@ class TargaSystem{
 		bool searchAuto(string _valTarga)const;
 		set<TipoVeicolo>::iterator searchTipoVeicolo(Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag);
 };
-void test_targasystem();
 
 #endif
 

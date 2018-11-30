@@ -52,7 +52,7 @@ ostream& operator<<(ostream& os,const TipoVeicolo & v){
 	 		os<<"Tipo veicolo: CAMPER"<<endl;
 	 		break;
 	 	default:
-	 		//è impossibile entrare nel default
+	 		
 	 		break;
 	 }
 	 os<<"Marca: "<<v.marca<<endl;
@@ -60,14 +60,8 @@ ostream& operator<<(ostream& os,const TipoVeicolo & v){
 	 os<<"Cilindrata: "<<v.cilindrata<<"cc"<<endl;
 	 os<<"Kilowatt: "<<v.kw<<endl;
 	 os<<"Categoria Euro: "<<v.catEuro<<endl;
-//	 os<<"Informazioni sulla sicurezza"<<endl;
-	 os<<"Stelle euroNcap: "<<v.infosic.geteuroNcap()<<endl;
-	 os<<"Numero airbag: "<<v.infosic.getnAirbag()<<endl;
+	 os<<"INFORMAZIONI SULLA SICUREZZA"<<endl;
+	 os<<v.infosic<<endl; 
 	 return os;
 }
-void test_tipoveicolo(){
-	TipoVeicolo a(MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
-	cout<<a;
-	//questa non funziona il tipo di veicolo deve essere uno di quelli tra l'enum! TipoVeicolo b(Camper,"Kawasakj","Ninja",1000,50,4,5,0);
-	//cout<<b;
-}	
+

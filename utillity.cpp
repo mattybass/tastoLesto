@@ -1,13 +1,8 @@
 #include "utility.h"
 
-#include <cstdlib>
 #include <iomanip>
-#include <iostream>
 #include <fstream>
-#include <map>
-#include <string>
-
-using namespace std;
+#include <sstream>
 
 Utility::Utility(){
 	char c;
@@ -65,12 +60,5 @@ int convertiStringa(string stringa, int inizio, int nCaratteri){
   	ss >> i;
   	
   	return i;
-}
-
-void Utility::stampa()const{
-map<string,string>::const_iterator iter;
-for(iter=mapBelfiore.begin();iter!=mapBelfiore.end();iter++){
-	cout<<iter->first<<", "<<iter->second<<endl;
-}
 }
 

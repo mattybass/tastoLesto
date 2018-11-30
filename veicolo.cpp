@@ -1,9 +1,4 @@
 #include "veicolo.h"
-#include <list>
-#include "bollo.h"
-#include "revisione.h"
-#include <string>
-#include "data.h"
 
 Veicolo::Veicolo(string _targa,set<TipoVeicolo>::iterator _tipoVeicoloCollegato,int _g,int _m,int _a):dataImmatricolazione(_g,_m,_a){//in veicolo passo la data di immatricolazione
 	targa=_targa;
@@ -166,24 +161,3 @@ ostream& operator<<(ostream& os, const Veicolo& _v){
 	cout<<*temp;
 }
 
-
-void test_veicolo(){
-/*	Veicolo v("FF657DD",20,11,2018);
-//	v.addBollo(3,10,2018);
-//	v.stampaBollo();
-	v.addFurto(30,1,2018,"Calavino","uomo nero");
-	cout<<endl;
-	v.disattivaDenuncia();
-//	cout<<endl<<"----------------------------"<<endl;
-//	v.checkAvviso();
-	v.addFurto(30,1,2018,"Calavino","uomo nero");
-	v.addAssicurazione("Itas",27,11,2018,5);
-	v.addAssicurazione("Axa",20,10,2020,1);
-
-	v.stampaRevisione();
-	v.stampaFurto();	
-	v.stampaAssicurazione();
-	v.stampaBollo();
-	cout<<endl<<"----------------------------"<<endl;		
-	v.check();*/
-}

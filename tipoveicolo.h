@@ -20,7 +20,6 @@ class TipoVeicolo{
 		friend ostream& operator<<(ostream& os,const TipoVeicolo & v);
 		friend bool operator<(const TipoVeicolo& _t, const TipoVeicolo& _t2);
 		};
-void test_tipoveicolo();
 bool operator<(const TipoVeicolo& _t, const TipoVeicolo& _t2);
 ostream& operator<<(ostream& os,const TipoVeicolo & v);
 
