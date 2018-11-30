@@ -34,6 +34,9 @@ class TargaSystem{
 		void stampaProp(string _valTarga)const;
 		
 		void addBollo(string _valTarga,int _g,int _m,int _a, string _codFisc="",string _partIva="");
+		void addAssicurazione(string _valTarga,int _g,int _m,int _a, int _anniDurata, string _compagnia, string _codFisc="",string _partIva="");
+		void addFurto(string _valTarga,int _g,int _m,int _a, string _luogoDenuncia, string _noteDenuncia, string _codFisc="",string _partIva="");
+		void addRevisione(string _valTarga,int _g,int _m,int _a, int _kmRilevati, string _codFisc="",string _partIva="");
 		void checkAvviso(string _valTarga,string _codFisc="",string _partIva="")const;
 		
 		void stampaPropAziende()const;
