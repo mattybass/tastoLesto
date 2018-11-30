@@ -46,6 +46,7 @@ class TargaSystem{
 		//Altri metodi
 		void disattivaDenuncia(string _valTarga,string _codFisc="",string _partIva="");
 		void checkAvviso(string _valTarga,string _codFisc="",string _partIva="")const;
+		void checkAvvisoGlobal(string _valTarga)const;
 		//Metodi appoggio usate esclusivamente da altri metodi
 		bool searchAuto(string _valTarga)const;
 		set<TipoVeicolo>::iterator searchTipoVeicolo(Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag);
