@@ -3,10 +3,6 @@
 TargaSystem::TargaSystem():versione("1.0"),u(){
 }
 
-ostream& operator<<(ostream& os, TargaSystem& t){
-	os<<"Versione del programma: "<<t.versione<<endl;
-	return os;
-}
 
 void TargaSystem::checkAvviso(string _valTarga,string _codFisc,string _partIva)const{
 	if((_codFisc!="")&&(_partIva!="")){

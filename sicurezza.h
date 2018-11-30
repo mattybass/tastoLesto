@@ -10,7 +10,7 @@ class Sicurezza{
 		int euroNcap;
 		int nAirbag;
 	public:
-		Sicurezza();
+		//Sicurezza();
 		Sicurezza(int _na, int _ncap);
 		int geteuroNcap()const;
 		int getnAirbag()const;
