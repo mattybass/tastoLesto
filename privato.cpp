@@ -77,10 +77,15 @@ int convertiStringa(string stringa, int inizio, int nCaratteri){
 
 
 ostream& operator <<(ostream& os,const Privato &p){
-	os<<p.nome<<" "<<p.cognome<<" ("<<p.codFiscale<<")"<<endl;
+	os<<p.nome<<" "<<p.cognome<<endl<<"CODICE FISCALE: "<<p.codFiscale<<endl;
 	os<<"DATA DI NASCITA: "<<p.dataNascita<<endl<<"LUOGO DI NASCITA: "<<p.luogoNascita<<endl;
 	os<<"SESSO: "<<p.sesso<<endl<<"RESIDENZA: "<<endl<<p.get_residenza();	
 	return os;
+}
+void Privato::stampa()const{
+	cout<<nome<<" "<<cognome<<endl<<"CODICE FISCALE: "<<codFiscale<<endl;
+	cout<<"DATA DI NASCITA: "<<dataNascita<<endl<<"LUOGO DI NASCITA: "<<luogoNascita<<endl;
+	cout<<"SESSO: "<<sesso<<endl<<"RESIDENZA: "<<endl<<get_residenza();
 }
 
 void test_privato(){

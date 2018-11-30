@@ -6,10 +6,13 @@ Azienda::Azienda(string _nomeA,string _pIva,string _provincia, string _com, stri
 }
 
 ostream& operator <<(ostream& os,const Azienda &a){
-	os<<a.nomeA<<endl<<"P.IVA: "<<a.pIva<<endl<<a.get_residenza();
+	os<<a.nomeA<<endl<<"P.IVA: "<<a.pIva<<endl<<"SEDE LEGALE:"<<endl<<a.get_residenza();
 	return os;
 }
 
+void Azienda::stampa()const{
+	cout<<nomeA<<endl<<"P.IVA: "<<pIva<<endl<<"SEDE LEGALE:"<<endl<<get_residenza();
+}
 void test_azienda(){
 	Azienda a("Mario Povoli elettricista","0000168486","TN","Vallelaghi","al Picarel","38090",11);
 	cout<<a;

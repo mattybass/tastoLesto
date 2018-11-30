@@ -11,6 +11,7 @@ class Azienda:public Proprietario{
 	public:
 		Azienda(string _nomeA,string _pIva,string _provincia, string _com, string _via, string _cap, int _nCivico);
 		friend ostream& operator <<(ostream& os,const Azienda &a);
+		void stampa()const;
 };
 
 ostream& operator <<(ostream& os,const Azienda &a);
