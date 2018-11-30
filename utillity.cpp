@@ -13,7 +13,7 @@ Utility::Utility(){
 	char c;
 	char comune[50];
 	char codice[5];
-	ifstream myfile("belfiore.txt");
+	ifstream myfile("tastoLesto/belfiore.txt");
 	int k=0;
 	while(!myfile.eof()){
 		int cont=0;

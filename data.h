@@ -1,6 +1,6 @@
 #ifndef __DATA_H__
 #define __DATA_H__
-#include <cstdlib>
+
 #include <iostream>
 #include <ctime>
 
@@ -20,6 +20,5 @@ class Data{
 
 ostream& operator << (ostream& os, const Data& _data);
 bool operator<(Data const& d1, Data const& d2);
-void test_data();
 
 #endif
