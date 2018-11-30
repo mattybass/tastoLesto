@@ -227,12 +227,12 @@ void TargaSystem::stampaProp(string _valTarga)const{
 		}
 }
 
-void TargaSystem::addPropPrivati(string _nome,string _cognome,string _codFiscale,string _provincia, string _com, string _via, string _cap, int _nCivico){
-	mapPropPrivati.insert(pair<string,Privato> (_codFiscale,Privato(_nome,_cognome,_codFiscale,u.getLuogo(_codFiscale.substr(11,4)),_provincia,_com,_via,_cap,_nCivico)));
+void TargaSystem::addPropPrivati(string _nome,string _cognome,string _codFiscale,string _provincia, string _com, string _via, int _nCivico,string _cap){
+	mapPropPrivati.insert(pair<string,Privato> (_codFiscale,Privato(_nome,_cognome,_codFiscale,u.getLuogo(_codFiscale.substr(11,4)),_provincia,_com,_via,_nCivico,_cap)));
 }
 
-void TargaSystem::addPropAziende(string _nomeA,string _pIva,string _provincia, string _com, string _via, string _cap, int _nCivico){
-	mapPropAziende.insert(pair<string,Azienda> (_pIva,Azienda(_nomeA,_pIva,_provincia,_com,_via,_cap,_nCivico)));
+void TargaSystem::addPropAziende(string _nomeA,string _pIva,string _provincia, string _com, string _via, int _nCivico,string _cap){
+	mapPropAziende.insert(pair<string,Azienda> (_pIva,Azienda(_nomeA,_pIva,_provincia,_com,_via,_nCivico,_cap)));
 }
 
 void TargaSystem::stampaPropAziende()const{
@@ -670,7 +670,6 @@ void TargaSystem::stampaBollo(string _valTarga,string _codFisc,string _partIva)c
 		}
 	}
 }
-
 void TargaSystem::stampaFurto(string _valTarga,string _codFisc,string _partIva)const{
 	if((_codFisc!="")&&(_partIva!="")){
 		cout<<"Scegli, o codice fiscale o partita iva!"<<endl;
@@ -733,7 +732,6 @@ void TargaSystem::stampaFurto(string _valTarga,string _codFisc,string _partIva)c
 		}
 	}
 }
-
 void TargaSystem::stampaAssicurazione(string _valTarga,string _codFisc,string _partIva)const{
 	if((_codFisc!="")&&(_partIva!="")){
 		cout<<"Scegli, o codice fiscale o partita iva!"<<endl;
@@ -796,7 +794,6 @@ void TargaSystem::stampaAssicurazione(string _valTarga,string _codFisc,string _p
 		}
 	}
 }
-
 void TargaSystem::checkAvvisoGlobal(string _valTarga)const{
 	map<string,list<Veicolo> >::const_iterator iter;
 	map<string,list<Veicolo> >::const_iterator temp2;
@@ -845,7 +842,6 @@ void TargaSystem::checkAvvisoGlobal(string _valTarga)const{
 			
 		}
 }
-
 void TargaSystem::stampaRevisione(string _valTarga,string _codFisc,string _partIva)const{
 	if((_codFisc!="")&&(_partIva!="")){
 		cout<<"Scegli, o codice fiscale o partita iva!"<<endl;
@@ -909,6 +905,7 @@ void TargaSystem::stampaRevisione(string _valTarga,string _codFisc,string _partI
 	}
 }
 
+
 set<TipoVeicolo>::iterator TargaSystem::searchTipoVeicolo(Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag){
 	set<TipoVeicolo>::const_iterator iter;
 	iter=setTipoVeicolo.find(TipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag));
@@ -962,10 +959,10 @@ void test_targasystem(){
 	t.stampaAuto("UJ654GG");
 	cout<<endl;	*/
 //	t.stampaAuto("mattydemocristiano");
-	t.addPropPrivati("Daniele","Mattedi","MTTDNL98A30I830H","TN","Madruzzo","Roma","38076",23);
-	t.addPropPrivati("Danilo","Mattedi","MTTDNL97A30Z356H","TN","Madruzzo","Roma","38076",23);
-	t.addPropAziende("Roberti-programmatore","ziopino","TN","Vallelaghi","Roma","38070",1);
-	t.addPropAziende("Roberti-programmatore","ziopero","TN","Vallelaghi","Roma","38070",1);
+	t.addPropPrivati("Daniele","Mattedi","MTTDNL98A30I830H","TN","Madruzzo","Roma",1,"38076");
+	t.addPropPrivati("Danilo","Mattedi","MTTDNL97A30Z356H","TN","Madruzzo","Roma",23,"38076");
+	t.addPropAziende("Roberti-programmatore","ziopino","TN","Vallelaghi","Roma",1,"38070");
+	t.addPropAziende("Roberti-programmatore","ziopero","TN","Vallelaghi","Roma",1,"38070");
 	t.stampaPropPrivati();
 	t.stampaPropAziende();
 	/*cout<<endl<<endl<<endl;
