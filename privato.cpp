@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-Privato::Privato(string _nome,string _cognome,string _codFiscale,string _luogoNascita,string _provincia, string _com, string _via, string _cap, int _nCivico):Proprietario(_provincia, _com, _via, _cap, _nCivico),dataNascita(0,0,0){
+Privato::Privato(string _nome,string _cognome,string _codFiscale,string _luogoNascita,string _provincia, string _com, string _via,int _nCivico,string _cap):Proprietario(_provincia, _com, _via, _nCivico,_cap),dataNascita(0,0,0){
 	nome=_nome;
 	cognome=_cognome;
 	codFiscale=_codFiscale;
@@ -89,7 +89,7 @@ void Privato::stampa()const{
 }
 
 void test_privato(){
-	Privato p("Riccardo","Ricci","RCCRCR96T17L378O","Trento","TN","Madruzzo","Roma","38076",23);
+	Privato p("Riccardo","Ricci","RCCRCR96T17L378O","Trento","TN","Madruzzo","Roma",23,"38076");
 	cout<<p;
 
 }

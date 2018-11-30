@@ -26,8 +26,8 @@ class TargaSystem{
 		TargaSystem(); 
 		//FUNZIONALITA' PER L'UTENTE
 		//Metodi di aggiunta:
-		void addPropPrivati(string _nome,string _cognome,string _codFiscale,string _provincia, string _com, string _via, string _cap, int _nCivico);
-		void addPropAziende(string _nomeA,string _pIva,string _provincia, string _com, string _via, string _cap, int _nCivico);
+		void addPropPrivati(string _nome,string _cognome,string _codFiscale,string _provincia, string _com, string _via, int _nCivico, string _cap);
+		void addPropAziende(string _nomeA,string _pIva,string _provincia, string _com, string _via, int _nCivico,string _cap);
 		void addPrivati(string _codFiscale,string _targa,int _g,int _m,int _a,Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag);
 		void addAziende(string _pIva,string _targa,int _g,int _m,int _a,Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag);
 		void addBollo(string _valTarga,int _g,int _m,int _a, string _codFisc="",string _partIva="");

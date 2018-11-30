@@ -1,6 +1,6 @@
 #include "proprietario.h"
 
-Proprietario::Proprietario(string _provincia, string _com, string _via, string _cap, int _nCivico):residenza(_provincia, _com, _via, _cap, _nCivico){
+Proprietario::Proprietario(string _provincia, string _com, string _via, int _nCivico, string _cap):residenza(_provincia, _com, _via, _nCivico,_cap){
 	
 }
 

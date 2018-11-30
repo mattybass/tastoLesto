@@ -9,7 +9,7 @@ class Proprietario{
 	private:
 		Luogo residenza;
 	public:
-		Proprietario(string _provincia, string _com, string _via, string _cap, int _nCivico);
+		Proprietario(string _provincia, string _com, string _via, int _nCivico, string _cap);
 		Luogo get_residenza()const;
 };
 

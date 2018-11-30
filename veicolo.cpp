@@ -124,8 +124,8 @@ bool Veicolo::checkFurto()const{
 }
 
 void Veicolo::check()const{
-	cout<<"Veicolo targa:"<<targa;
-	cout<<endl<<"REVISIONE: ";
+	cout<<"-----------------------"<<endl<<"AVVISI VEICOLO "<<targa<<endl<<"-----------------------"<<endl;
+	cout<<"REVISIONE: ";
 	if(checkRevisione()==1)
 		cout<<"non in regola";
 	else

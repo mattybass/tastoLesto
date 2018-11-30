@@ -1,7 +1,9 @@
+#include "data.h"
+
 #include <iostream>
 #include <ctime>
 
-#include "data.h"
+using namespace std;
 
 Data::Data(){//costruttore di data a 0 parametri -> inizializza alla data attuale
 	time_t data = time(0);//data salvata in data

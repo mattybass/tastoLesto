@@ -1,6 +1,6 @@
 #include "azienda.h"
 
-Azienda::Azienda(string _nomeA,string _pIva,string _provincia, string _com, string _via, string _cap, int _nCivico):Proprietario(_provincia, _com, _via, _cap, _nCivico){
+Azienda::Azienda(string _nomeA,string _pIva,string _provincia, string _com, string _via, int _nCivico,string _cap):Proprietario(_provincia, _com, _via, _nCivico,_cap){
 	nomeA=_nomeA;
 	pIva=_pIva;
 }
@@ -14,6 +14,6 @@ void Azienda::stampa()const{
 	cout<<nomeA<<endl<<"P.IVA: "<<pIva<<endl<<endl<<"SEDE LEGALE"<<endl<<get_residenza();
 }
 void test_azienda(){
-	Azienda a("Mario Povoli elettricista","0000168486","TN","Vallelaghi","al Picarel","38090",11);
+	Azienda a("Mario Povoli elettricista","0000168486","TN","Vallelaghi","al Picarel",11,"38090");
 	cout<<a;
 }
