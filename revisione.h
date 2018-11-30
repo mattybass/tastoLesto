@@ -1,11 +1,9 @@
 #ifndef __REVISIONE_H__
 #define __REVISIONE_H__
-#include <string>
-#include <cstdlib>
-#include <iostream>
-using namespace std;
 
 #include "data.h"
+
+using namespace std;
 
 class Revisione{
 	private:
@@ -18,6 +16,5 @@ class Revisione{
 		Data get_scadenza()const;
 };
 ostream& operator <<(ostream& os,const Revisione& _r);
-void test_revisione();
 
 #endif

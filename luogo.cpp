@@ -1,7 +1,5 @@
 #include "luogo.h"
 
-#include <iostream>
-
 using namespace std;
 
 Luogo::Luogo(string _provincia, string _com, string _via, int _nCivico, string _cap){

@@ -219,7 +219,7 @@ void TargaSystem::stampaProp(string _valTarga)const{
 			iterAzienda=mapPropAziende.find(temp2->first);
 			if(iterAzienda!=mapPropAziende.end()){
 				(iterAzienda->second).stampa();
-				//cout<<*(iterAzienda->second) NON FUNZIONA! PERCHE'?
+				//cout<<*(iterAzienda->second);
 			}
 		}
 		else

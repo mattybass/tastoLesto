@@ -65,17 +65,6 @@ Privato::Privato(string _nome,string _cognome,string _codFiscale,string _luogoNa
 	
 }
 
-/*int convertiStringa(string stringa, int inizio, int nCaratteri){
-	string sEstratta=stringa.substr(inizio,nCaratteri);
-	stringstream ss(sEstratta);
-	int i;
-  	ss >> i;
-  	
-  	return i;
-}*/
-	
-
-
 ostream& operator <<(ostream& os,const Privato &p){
 	os<<p.nome<<" "<<p.cognome<<endl<<"CODICE FISCALE: "<<p.codFiscale<<endl;
 	os<<"DATA DI NASCITA: "<<p.dataNascita<<endl<<"LUOGO DI NASCITA: "<<p.luogoNascita<<endl;
@@ -88,9 +77,4 @@ void Privato::stampa()const{
 	cout<<"SESSO: "<<sesso<<endl<<"RESIDENZA: "<<endl<<get_residenza();
 }
 
-void test_privato(){
-	Privato p("Riccardo","Ricci","RCCRCR96T17L378O","Trento","TN","Madruzzo","Roma",23,"38076");
-	cout<<p;
-
-}
 

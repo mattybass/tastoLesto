@@ -1,6 +1,7 @@
 #ifndef __PROPRIETARIO_H__
 #define __PROPRIETARIO_H__
-
+#include <string>
+#include <iostream>
 #include "luogo.h"
 
 using namespace std;

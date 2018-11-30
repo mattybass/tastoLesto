@@ -1,13 +1,10 @@
 #ifndef __PRIVATO_H__
 #define __PRIVATO_H__
+
 #include "utility.h"
-#include "luogo.h"
 #include "proprietario.h"
 #include "data.h"
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <cstdlib>
+
 using namespace std;
 
 class Privato:public Proprietario{
@@ -25,8 +22,5 @@ class Privato:public Proprietario{
 };
 
 ostream& operator <<(ostream& os,const Privato &p);
-void test_privato();
-
-//int convertiStringa(string stringa, int inizio, int nCaratteri);
 
 #endif

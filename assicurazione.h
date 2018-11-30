@@ -11,11 +11,10 @@ class Assicurazione{
 		Data dataScadenzaA;
 		string compagnia;
 	public:
-		friend ostream& operator<<(ostream& os, const Assicurazione &a);
 		Assicurazione(string _compagnia, int _g,int _m,int _a,int durata);
+		friend ostream& operator<<(ostream& os, const Assicurazione &a);
 		Data get_scadenza()const;
 };
 ostream& operator<<(ostream& os, const Assicurazione &a);
-void test_assicurazione();
 
 #endif

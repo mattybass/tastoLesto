@@ -1,5 +1,4 @@
 #include "bollo.h"
-#include "data.h"
 
 Bollo::Bollo(int _kw, int _catEuro, int _g,int _m,int _a, bool check):dataInizioB(_g,_m,_a),dataScadenzaB(0,0,0){
 	if(check==0)//primo bollo della macchina
@@ -57,7 +56,3 @@ ostream& operator <<(ostream& os,const Bollo& _b){
 	return os;
 }
 
-void test_bollo(){
-	Bollo b(80,1,30,1,2018,0);
-	cout<<b;
-}

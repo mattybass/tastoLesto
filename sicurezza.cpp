@@ -1,11 +1,5 @@
 #include "sicurezza.h"
 
-#include <string>
-#include <cstdlib>
-#include <iostream>
-
-using namespace std;
-
 Sicurezza::Sicurezza(int _na, int _ncap){
 	euroNcap=_ncap;
 	nAirbag=_na;
@@ -17,5 +11,9 @@ int Sicurezza::geteuroNcap()const{
 
 int Sicurezza::getnAirbag()const{
 	return nAirbag;
+}
+
+ostream& operator<<(ostream& os, const Sicurezza& s){
+	os<<"Stelle EuronCap: "<<s.euroNcap<<endl<<"Numero airbag: "<<s.nAirbag<<endl;
 }
 

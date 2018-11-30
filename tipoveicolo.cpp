@@ -8,10 +8,10 @@ TipoVeicolo::TipoVeicolo(Tipo _tipo, string _marca, string _modello, int _cilind
 	kw=_kw;
 	catEuro=_catEuro;
 }
-int const TipoVeicolo::getKw(){
+int TipoVeicolo::getKw()const{
 	return kw;
 }
-int const TipoVeicolo::getCatEuro(){
+int TipoVeicolo::getCatEuro()const{
 	return catEuro;
 }
 bool operator<(const TipoVeicolo& _t, const TipoVeicolo& _t2){

@@ -14,7 +14,5 @@ class Bollo{
 
 };                
 ostream& operator <<(ostream& os,const Bollo& _b);                   
-void test_bollo();
-
 
 #endif

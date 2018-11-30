@@ -12,7 +12,7 @@ class Data{
 	   int mese;
 	   int anno;
 	public:
-	   Data();
+	   Data();//iniaializza un oggetto data contenente la data di oggi
 	   Data(int _g,int _m ,int _a);
 	   friend bool operator <(Data const& d1, Data const& d2);
 	   friend ostream& operator <<(ostream& os, const Data& _data);

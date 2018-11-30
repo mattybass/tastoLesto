@@ -1,13 +1,10 @@
 #include "data.h"
 
-#include <iostream>
-#include <ctime>
-
 using namespace std;
 
-Data::Data(){//costruttore di data a 0 parametri -> inizializza alla data attuale
-	time_t data = time(0);//data salvata in data
-	tm* tempo = localtime(&data);//inizializza struttura tm
+Data::Data(){
+	time_t data = time(0);
+	tm* tempo = localtime(&data);
 	giorno=tempo->tm_mday;
 	mese=tempo->tm_mon+1;
 	anno=tempo->tm_year+1900;

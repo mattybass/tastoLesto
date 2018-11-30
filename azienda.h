@@ -1,8 +1,8 @@
 #ifndef __AZIENDA_H__
 #define __AZIENDA_H__
-#include "luogo.h"
 #include "proprietario.h"
-#include <string>
+
+using namespace std;
 
 class Azienda:public Proprietario{
 	private:
@@ -15,6 +15,5 @@ class Azienda:public Proprietario{
 };
 
 ostream& operator <<(ostream& os,const Azienda &a);
-void test_azienda();
 
 #endif

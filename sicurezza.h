@@ -1,7 +1,6 @@
 #ifndef __SICUREZZA_H__
 #define __SICUREZZA_H__
-#include <string>
-#include <cstdlib>
+
 #include <iostream>
 
 using namespace std;
@@ -14,6 +13,7 @@ class Sicurezza{
 		Sicurezza(int _na, int _ncap);
 		int geteuroNcap()const;
 		int getnAirbag()const;
+		friend ostream& operator<<(ostream& os, const Sicurezza& s);
 };
-
+ostream& operator<<(ostream& os, const Sicurezza& s);
 #endif

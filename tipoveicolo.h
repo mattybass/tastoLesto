@@ -15,12 +15,14 @@ class TipoVeicolo{
 		Sicurezza infosic; 
 	public:
 		TipoVeicolo(Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag);
-		int const getKw(); //non so perche non mi fa usare il const dopo getkw();
-		int const getCatEuro();	
+		int getKw()const; 
+		int getCatEuro()const;	
 		friend ostream& operator<<(ostream& os,const TipoVeicolo & v);
 		friend bool operator<(const TipoVeicolo& _t, const TipoVeicolo& _t2);
 		};
 void test_tipoveicolo();
 bool operator<(const TipoVeicolo& _t, const TipoVeicolo& _t2);
 ostream& operator<<(ostream& os,const TipoVeicolo & v);
+
 #endif
+

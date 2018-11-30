@@ -13,7 +13,4 @@ ostream& operator <<(ostream& os,const Azienda &a){
 void Azienda::stampa()const{
 	cout<<nomeA<<endl<<"P.IVA: "<<pIva<<endl<<endl<<"SEDE LEGALE"<<endl<<get_residenza();
 }
-void test_azienda(){
-	Azienda a("Mario Povoli elettricista","0000168486","TN","Vallelaghi","al Picarel",11,"38090");
-	cout<<a;
-}
+

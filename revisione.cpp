@@ -15,7 +15,3 @@ ostream& operator <<(ostream& os,const Revisione& _r){
 	return os;
 }
 
-void test_revisione(){
-	Revisione r(30,1,2018,20690,0);
-	cout<<r;
-}
