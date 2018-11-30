@@ -794,6 +794,54 @@ void TargaSystem::stampaAssicurazione(string _valTarga,string _codFisc,string _p
 		}
 	}
 }
+void TargaSystem::checkAvvisoGlobal(string _valTarga)const{
+	map<string,list<Veicolo> >::const_iterator iter;
+	map<string,list<Veicolo> >::const_iterator temp2;
+	list<Veicolo>::const_iterator liter;
+	list<Veicolo>::const_iterator temp;
+	
+	temp2=mapPrivati.end();
+	iter=mapPrivati.begin();
+	while(iter!=mapPrivati.end()&&temp2==mapPrivati.end()){
+		temp=(iter->second).end();
+		liter=(iter->second).begin();
+		while(liter!=(iter->second).end()&&temp==(iter->second).end()){
+			if((*liter).getTarga()==_valTarga){
+				temp=liter;
+			}
+			liter++;
+		}
+		if(temp!=(iter->second).end()){
+			temp2=iter;
+		}
+		iter++;
+	}
+	if(temp2!=mapPrivati.end())
+		(*temp).check();
+	else{
+		temp2=mapAziende.end();
+		iter=mapAziende.begin();
+		while(iter!=mapAziende.end()&&temp2==mapAziende.end()){
+			temp=(iter->second).end();
+			liter=(iter->second).begin();
+			while(liter!=(iter->second).end()&&temp==(iter->second).end()){
+				if((*liter).getTarga()==_valTarga){
+					temp=liter;
+				}
+				liter++;
+			}
+			if(temp!=(iter->second).end()){
+				temp2=iter;
+			}
+			iter++;
+		}
+		if(temp2!=mapAziende.end())
+			(*temp).check();
+		else
+			cout<<"Auto non presente!"<<endl;
+			
+		}
+}
 void TargaSystem::stampaRevisione(string _valTarga,string _codFisc,string _partIva)const{
 	if((_codFisc!="")&&(_partIva!="")){
 		cout<<"Scegli, o codice fiscale o partita iva!"<<endl;
@@ -886,7 +934,9 @@ void test_targasystem(){
 	t.addAziende("iaiaiaia","YH543FF",20,1,2005,CAMPER,"Ford","Turistico",2000,50,1,4,0);
 	t.addAziende("qooqoqoqqo","UJ654GG",20,1,2005,CAMPER,"Ford","Turistico",2000,50,1,4,0);
 	cout<<endl;
-	//t.stampaAuto("DN987EE");
+	t.checkAvvisoGlobal("DD987DD");
+	cout<<endl;
+	t.checkAvvisoGlobal("DIOPORCOOO");
 	cout<<endl;
 /*	t.stampaAuto("CS429PN");
 	cout<<endl;
