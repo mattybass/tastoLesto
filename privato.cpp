@@ -65,14 +65,14 @@ Privato::Privato(string _nome,string _cognome,string _codFiscale,string _luogoNa
 	
 }
 
-int convertiStringa(string stringa, int inizio, int nCaratteri){
+/*int convertiStringa(string stringa, int inizio, int nCaratteri){
 	string sEstratta=stringa.substr(inizio,nCaratteri);
 	stringstream ss(sEstratta);
 	int i;
   	ss >> i;
   	
   	return i;
-}
+}*/
 	
 
 

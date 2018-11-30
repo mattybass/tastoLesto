@@ -1,7 +1,6 @@
 #include "targasystem.h"
 
-TargaSystem::TargaSystem():versione("1.0"){
-	
+TargaSystem::TargaSystem():versione("1.0"),u(){
 }
 
 ostream& operator<<(ostream& os, TargaSystem& t){
@@ -232,8 +231,8 @@ void TargaSystem::stampaProp(string _valTarga)const{
 		}
 }
 
-void TargaSystem::addPropPrivati(string _nome,string _cognome,string _codFiscale,string _luogoNascita,string _provincia, string _com, string _via, string _cap, int _nCivico){
-	mapPropPrivati.insert(pair<string,Privato> (_codFiscale,Privato(_nome,_cognome,_codFiscale,_luogoNascita,_provincia,_com,_via,_cap,_nCivico)));
+void TargaSystem::addPropPrivati(string _nome,string _cognome,string _codFiscale,string _provincia, string _com, string _via, string _cap, int _nCivico){
+	mapPropPrivati.insert(pair<string,Privato> (_codFiscale,Privato(_nome,_cognome,_codFiscale,u.getLuogo(_codFiscale.substr(11,4)),_provincia,_com,_via,_cap,_nCivico)));
 }
 
 void TargaSystem::addPropAziende(string _nomeA,string _pIva,string _provincia, string _com, string _via, string _cap, int _nCivico){
@@ -375,9 +374,10 @@ set<TipoVeicolo>::iterator TargaSystem::searchTipoVeicolo(Tipo _tipo, string _ma
 
 void test_targasystem(){
 	TargaSystem t;
-	t.addPrivati("MTTDNL98A30L378H","DN987EE",20,11,2013,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
+	Utility u;
+	t.addPrivati("MTTDNL98A30A001H","DN987EE",20,11,2013,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
 //	t.addPrivati("MTTDNL98A30L378H","DN987EE",30,1,2018,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
-	t.addPrivati("MTTDNL98A30L378H","DD987DD",20,1,2005,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
+	t.addPrivati("MTTDNL98A30A001H","DD987DD",20,1,2005,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
 	t.addPrivati("AAAA","TE746TT",20,1,2005,MOTO,"Kawasakj","Ninja",1500,50,4,5,0);
 	t.addPrivati("bbbb","DD987DD",20,1,2005,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
 	t.addPrivati("bbbb","RR567RR",20,1,2005,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
@@ -410,16 +410,16 @@ void test_targasystem(){
 	t.stampaAuto("UJ654GG");
 	cout<<endl;	*/
 //	t.stampaAuto("mattydemocristiano");
-	t.addPropPrivati("Daniele","Mattedi","MTTDNL98A30L378H","Trento","TN","Madruzzo","Roma","38076",23);
+	t.addPropPrivati("Daniele","Mattedi","MTTDNL98A30A001H","TN","Madruzzo","Roma","38076",23);
 	t.addPropAziende("Roberti-programmatore","ziopino","TN","Vallelaghi","Roma","38070",1);
 	cout<<endl<<endl<<endl;
 	t.stampaProp("DN987EE");
 	cout<<endl<<endl<<endl;
 //	t.stampaProp("YR747YE");
-	t.checkAvviso("DN987EE","MTTDNL98A30L378H");
-	t.addBollo("DN987EE",1,11,2018,"MTTDNL98A30L378H");
+	t.checkAvviso("DN987EE","MTTDNL98A30A001H");
+	t.addBollo("DN987EE",1,11,2018,"MTTDNL98A30A001H");
 	cout<<endl;
-	t.checkAvviso("DN987EE","MTTDNL98A30L378H");
+	t.checkAvviso("DN987EE","MTTDNL98A30A001H");
 	
 	
 	
