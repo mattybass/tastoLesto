@@ -14,6 +14,7 @@ class Utility{
 		Utility();
 	//	void popolaBelfiore(string _stringa);
 		string getLuogo(string _codiceCatastale)const;
+		void stampa()const;
 	
 };
 #endif
