@@ -330,6 +330,321 @@ void TargaSystem::addBollo(string _valTarga,int _g,int _m,int _a, string _codFis
 			}
 			if(_partIva!="")//il veicolo appartiene ad un azienda!
 			{
+				map<string,list<Veicolo> >::iterator iter;
+				map<string,list<Veicolo> >::iterator temp;
+				temp=mapPrivati.end();
+				for(iter=mapAziende.begin();iter!=mapAziende.end();++iter){
+					if (iter->first==_partIva)
+						temp=iter; //ho trovato l'azienda nel map
+				}
+				if(temp!=mapAziende.end()){
+					list<Veicolo>::iterator liter;
+					list<Veicolo>::iterator temp2;
+					temp2=(temp->second.end());
+					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+						if((*liter).getTarga()==_valTarga)	
+							temp2=liter;//ho trovato la vettura nella lista
+					}
+					if(temp2!=(temp->second.end())){//vuol dire che ho trovato la vettura
+					(*temp2).addBollo(_g,_m,_a);
+					}
+					else
+						cout<<"Esiste l'azienda, ma non e' proprietaria di questa vettura!"<<endl;
+				}
+				else 
+				cout<<"Non esiste questa azienda come proprietaria di veicoli!"<<endl;
+		    }
+		}
+	}
+}
+
+void TargaSystem::addFurto(string _valTarga,int _g,int _m,int _a, string _luogoDenuncia, string _noteDenuncia, string _codFisc,string _partIva){
+	if((_codFisc!="")&&(_partIva!="")){
+		cout<<"Scegli, o codice fiscale o partita iva!"<<endl;
+	}
+	else{
+		if((_codFisc=="")&&(_partIva=="")){
+			cout<<"Inserisci il codice fiscale o la partita iva!"<<endl;
+		}
+		else{
+			if(_codFisc!=""){//il veicolo appartiene ad un privato!
+				map<string,list<Veicolo> >::iterator iter;
+				map<string,list<Veicolo> >::iterator temp;
+				temp=mapPrivati.end();
+				for(iter=mapPrivati.begin();iter!=mapPrivati.end();++iter){
+					if (iter->first==_codFisc)
+						temp=iter; //ho trovato la persona nel map
+				}
+				if(temp!=mapPrivati.end()){
+					list<Veicolo>::iterator liter;
+					list<Veicolo>::iterator temp2;
+					temp2=(temp->second.end());
+					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+						if((*liter).getTarga()==_valTarga)	
+							temp2=liter;//ho trovato la vettura nella lista
+					}
+					if(temp2!=(temp->second.end()))//vuol dire che ho trovato la vettura
+					(*temp2).addFurto(_g,_m,_a,_noteDenuncia,_luogoDenuncia);
+					else
+						cout<<"Esiste la persona, ma non e' proprietaria di questo veicolo!"<<endl;
+				}
+				else 
+					cout<<"Non esiste questa persona come proprietario di veicoli!"<<endl;
+			}
+			if(_partIva!="")//il veicolo appartiene ad un azienda!
+			{
+				map<string,list<Veicolo> >::iterator iter;
+				map<string,list<Veicolo> >::iterator temp;
+				temp=mapPrivati.end();
+				for(iter=mapAziende.begin();iter!=mapAziende.end();++iter){
+					if (iter->first==_partIva)
+						temp=iter; //ho trovato l'azienda nel map
+				}
+				if(temp!=mapAziende.end()){
+					list<Veicolo>::iterator liter;
+					list<Veicolo>::iterator temp2;
+					temp2=(temp->second.end());
+					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+						if((*liter).getTarga()==_valTarga)	
+							temp2=liter;//ho trovato la vettura nella lista
+					}
+					if(temp2!=(temp->second.end())){//vuol dire che ho trovato la vettura
+					(*temp2).addFurto(_g,_m,_a,_noteDenuncia,_luogoDenuncia);
+					}
+					else
+						cout<<"Esiste l'azienda, ma non e' proprietaria di questa vettura!"<<endl;
+				}
+				else 
+				cout<<"Non esiste questa azienda come proprietaria di veicoli!"<<endl;
+		    }
+		}
+	}
+}
+
+void TargaSystem::addAssicurazione(string _valTarga,int _g,int _m,int _a, int _anniDurata, string _compagnia, string _codFisc,string _partIva){
+	if((_codFisc!="")&&(_partIva!="")){
+		cout<<"Scegli, o codice fiscale o partita iva!"<<endl;
+	}
+	else{
+		if((_codFisc=="")&&(_partIva=="")){
+			cout<<"Inserisci il codice fiscale o la partita iva!"<<endl;
+		}
+		else{
+			if(_codFisc!=""){//il veicolo appartiene ad un privato!
+				map<string,list<Veicolo> >::iterator iter;
+				map<string,list<Veicolo> >::iterator temp;
+				temp=mapPrivati.end();
+				for(iter=mapPrivati.begin();iter!=mapPrivati.end();++iter){
+					if (iter->first==_codFisc)
+						temp=iter; //ho trovato la persona nel map
+				}
+				if(temp!=mapPrivati.end()){
+					list<Veicolo>::iterator liter;
+					list<Veicolo>::iterator temp2;
+					temp2=(temp->second.end());
+					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+						if((*liter).getTarga()==_valTarga)	
+							temp2=liter;//ho trovato la vettura nella lista
+					}
+					if(temp2!=(temp->second.end()))//vuol dire che ho trovato la vettura
+					(*temp2).addAssicurazione(_compagnia,_g,_m,_a,_anniDurata);
+					else
+						cout<<"Esiste la persona, ma non e' proprietaria di questo veicolo!"<<endl;
+				}
+				else 
+					cout<<"Non esiste questa persona come proprietario di veicoli!"<<endl;
+			}
+			if(_partIva!="")//il veicolo appartiene ad un azienda!
+			{
+				map<string,list<Veicolo> >::iterator iter;
+				map<string,list<Veicolo> >::iterator temp;
+				temp=mapPrivati.end();
+				for(iter=mapAziende.begin();iter!=mapAziende.end();++iter){
+					if (iter->first==_partIva)
+						temp=iter; //ho trovato l'azienda nel map
+				}
+				if(temp!=mapAziende.end()){
+					list<Veicolo>::iterator liter;
+					list<Veicolo>::iterator temp2;
+					temp2=(temp->second.end());
+					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+						if((*liter).getTarga()==_valTarga)	
+							temp2=liter;//ho trovato la vettura nella lista
+					}
+					if(temp2!=(temp->second.end())){//vuol dire che ho trovato la vettura
+					(*temp2).addAssicurazione(_compagnia,_g,_m,_a,_anniDurata);
+					}
+					else
+						cout<<"Esiste l'azienda, ma non e' proprietaria di questa vettura!"<<endl;
+				}
+				else 
+				cout<<"Non esiste questa azienda come proprietaria di veicoli!"<<endl;
+		    }
+		}
+	}
+}
+
+void TargaSystem::addRevisione(string _valTarga,int _g,int _m,int _a, int _kmRilevati, string _codFisc,string _partIva){
+	if((_codFisc!="")&&(_partIva!="")){
+		cout<<"Scegli, o codice fiscale o partita iva!"<<endl;
+	}
+	else{
+		if((_codFisc=="")&&(_partIva=="")){
+			cout<<"Inserisci il codice fiscale o la partita iva!"<<endl;
+		}
+		else{
+			if(_codFisc!=""){//il veicolo appartiene ad un privato!
+				map<string,list<Veicolo> >::iterator iter;
+				map<string,list<Veicolo> >::iterator temp;
+				temp=mapPrivati.end();
+				for(iter=mapPrivati.begin();iter!=mapPrivati.end();++iter){
+					if (iter->first==_codFisc)
+						temp=iter; //ho trovato la persona nel map
+				}
+				if(temp!=mapPrivati.end()){
+					list<Veicolo>::iterator liter;
+					list<Veicolo>::iterator temp2;
+					temp2=(temp->second.end());
+					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+						if((*liter).getTarga()==_valTarga)	
+							temp2=liter;//ho trovato la vettura nella lista
+					}
+					if(temp2!=(temp->second.end()))//vuol dire che ho trovato la vettura
+					(*temp2).addRevisione(_g,_m,_a,_kmRilevati);
+					else
+						cout<<"Esiste la persona, ma non e' proprietaria di questo veicolo!"<<endl;
+				}
+				else 
+					cout<<"Non esiste questa persona come proprietario di veicoli!"<<endl;
+			}
+			if(_partIva!="")//il veicolo appartiene ad un azienda!
+			{
+				map<string,list<Veicolo> >::iterator iter;
+				map<string,list<Veicolo> >::iterator temp;
+				temp=mapPrivati.end();
+				for(iter=mapAziende.begin();iter!=mapAziende.end();++iter){
+					if (iter->first==_partIva)
+						temp=iter; //ho trovato l'azienda nel map
+				}
+				if(temp!=mapAziende.end()){
+					list<Veicolo>::iterator liter;
+					list<Veicolo>::iterator temp2;
+					temp2=(temp->second.end());
+					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+						if((*liter).getTarga()==_valTarga)	
+							temp2=liter;//ho trovato la vettura nella lista
+					}
+					if(temp2!=(temp->second.end())){//vuol dire che ho trovato la vettura
+					(*temp2).addRevisione(_g,_m,_a,_kmRilevati);
+					}
+					else
+						cout<<"Esiste l'azienda, ma non e' proprietaria di questa vettura!"<<endl;
+				}
+				else 
+				cout<<"Non esiste questa azienda come proprietaria di veicoli!"<<endl;
+		    }
+		}
+	}
+}
+
+void TargaSystem::disattivaDenuncia(string _valTarga,string _codFisc,string _partIva){
+	if((_codFisc!="")&&(_partIva!="")){
+		cout<<"Scegli, o codice fiscale o partita iva!"<<endl;
+	}
+	else{
+		if((_codFisc=="")&&(_partIva=="")){
+			cout<<"Inserisci il codice fiscale o la partita iva!"<<endl;
+		}
+		else{
+			if(_codFisc!=""){//il veicolo appartiene ad un privato!
+				map<string,list<Veicolo> >::iterator iter;
+				map<string,list<Veicolo> >::iterator temp;
+				temp=mapPrivati.end();
+				for(iter=mapPrivati.begin();iter!=mapPrivati.end();++iter){
+					if (iter->first==_codFisc)
+						temp=iter; //ho trovato la persona nel map
+				}
+				if(temp!=mapPrivati.end()){
+					list<Veicolo>::iterator liter;
+					list<Veicolo>::iterator temp2;
+					temp2=(temp->second.end());
+					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+						if((*liter).getTarga()==_valTarga)	
+							temp2=liter;//ho trovato la vettura nella lista
+					}
+					if(temp2!=(temp->second.end()))//vuol dire che ho trovato la vettura
+					(*temp2).disattivaDenuncia();
+					else
+						cout<<"Esiste la persona, ma non e' proprietaria di questo veicolo!"<<endl;
+				}
+				else 
+					cout<<"Non esiste questa persona come proprietario di veicoli!"<<endl;
+			}
+			if(_partIva!="")//il veicolo appartiene ad un azienda!
+			{
+				map<string,list<Veicolo> >::iterator iter;
+				map<string,list<Veicolo> >::iterator temp;
+				temp=mapPrivati.end();
+				for(iter=mapAziende.begin();iter!=mapAziende.end();++iter){
+					if (iter->first==_partIva)
+						temp=iter; //ho trovato l'azienda nel map
+				}
+				if(temp!=mapAziende.end()){
+					list<Veicolo>::iterator liter;
+					list<Veicolo>::iterator temp2;
+					temp2=(temp->second.end());
+					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+						if((*liter).getTarga()==_valTarga)	
+							temp2=liter;//ho trovato la vettura nella lista
+					}
+					if(temp2!=(temp->second.end())){//vuol dire che ho trovato la vettura
+					(*temp2).disattivaDenuncia();
+					}
+					else
+						cout<<"Esiste l'azienda, ma non e' proprietaria di questa vettura!"<<endl;
+				}
+				else 
+				cout<<"Non esiste questa azienda come proprietaria di veicoli!"<<endl;
+		    }
+		}
+	}
+}
+
+void TargaSystem::stampaBollo(string _valTarga,string _codFisc,string _partIva)const{
+	if((_codFisc!="")&&(_partIva!="")){
+		cout<<"Scegli, o codice fiscale o partita iva!"<<endl;
+	}
+	else{
+		if((_codFisc=="")&&(_partIva=="")){
+			cout<<"Inserisci il codice fiscale o la partita iva!"<<endl;
+		}
+		else{
+			if(_codFisc!=""){//il veicolo appartiene ad un privato!
+				map<string,list<Veicolo> >::const_iterator iter;
+				map<string,list<Veicolo> >::const_iterator temp;
+				temp=mapPrivati.end();
+				for(iter=mapPrivati.begin();iter!=mapPrivati.end();++iter){
+					if (iter->first==_codFisc)
+						temp=iter; //ho trovato la persona nel map
+				}
+				if(temp!=mapPrivati.end()){
+					list<Veicolo>::const_iterator liter;
+					list<Veicolo>::const_iterator temp2;
+					temp2=(temp->second.end());
+					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+						if((*liter).getTarga()==_valTarga)	
+							temp2=liter;//ho trovato la vettura nella lista
+					}
+					if(temp2!=(temp->second.end()))//vuol dire che ho trovato la vettura
+					(*temp2).stampaBollo();
+					else
+						cout<<"Esiste la persona, ma non e' proprietaria di questo veicolo!"<<endl;
+				}
+				else 
+					cout<<"Non esiste questa persona come proprietario di veicoli!"<<endl;
+			}
+			if(_partIva!="")//il veicolo appartiene ad un azienda!
+			{
 				map<string,list<Veicolo> >::const_iterator iter;
 				map<string,list<Veicolo> >::const_iterator temp;
 				temp=mapPrivati.end();
@@ -346,7 +661,7 @@ void TargaSystem::addBollo(string _valTarga,int _g,int _m,int _a, string _codFis
 							temp2=liter;//ho trovato la vettura nella lista
 					}
 					if(temp2!=(temp->second.end())){//vuol dire che ho trovato la vettura
-					(*temp2).check();
+					(*temp2).stampaBollo();
 					}
 					else
 						cout<<"Esiste l'azienda, ma non e' proprietaria di questa vettura!"<<endl;
@@ -357,6 +672,193 @@ void TargaSystem::addBollo(string _valTarga,int _g,int _m,int _a, string _codFis
 		}
 	}
 }
+void TargaSystem::stampaFurto(string _valTarga,string _codFisc,string _partIva)const{
+	if((_codFisc!="")&&(_partIva!="")){
+		cout<<"Scegli, o codice fiscale o partita iva!"<<endl;
+	}
+	else{
+		if((_codFisc=="")&&(_partIva=="")){
+			cout<<"Inserisci il codice fiscale o la partita iva!"<<endl;
+		}
+		else{
+			if(_codFisc!=""){//il veicolo appartiene ad un privato!
+				map<string,list<Veicolo> >::const_iterator iter;
+				map<string,list<Veicolo> >::const_iterator temp;
+				temp=mapPrivati.end();
+				for(iter=mapPrivati.begin();iter!=mapPrivati.end();++iter){
+					if (iter->first==_codFisc)
+						temp=iter; //ho trovato la persona nel map
+				}
+				if(temp!=mapPrivati.end()){
+					list<Veicolo>::const_iterator liter;
+					list<Veicolo>::const_iterator temp2;
+					temp2=(temp->second.end());
+					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+						if((*liter).getTarga()==_valTarga)	
+							temp2=liter;//ho trovato la vettura nella lista
+					}
+					if(temp2!=(temp->second.end()))//vuol dire che ho trovato la vettura
+					(*temp2).stampaFurto();
+					else
+						cout<<"Esiste la persona, ma non e' proprietaria di questo veicolo!"<<endl;
+				}
+				else 
+					cout<<"Non esiste questa persona come proprietario di veicoli!"<<endl;
+			}
+			if(_partIva!="")//il veicolo appartiene ad un azienda!
+			{
+				map<string,list<Veicolo> >::const_iterator iter;
+				map<string,list<Veicolo> >::const_iterator temp;
+				temp=mapPrivati.end();
+				for(iter=mapAziende.begin();iter!=mapAziende.end();++iter){
+					if (iter->first==_partIva)
+						temp=iter; //ho trovato l'azienda nel map
+				}
+				if(temp!=mapAziende.end()){
+					list<Veicolo>::const_iterator liter;
+					list<Veicolo>::const_iterator temp2;
+					temp2=(temp->second.end());
+					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+						if((*liter).getTarga()==_valTarga)	
+							temp2=liter;//ho trovato la vettura nella lista
+					}
+					if(temp2!=(temp->second.end())){//vuol dire che ho trovato la vettura
+					(*temp2).stampaFurto();
+					}
+					else
+						cout<<"Esiste l'azienda, ma non e' proprietaria di questa vettura!"<<endl;
+				}
+				else 
+				cout<<"Non esiste questa azienda come proprietaria di veicoli!"<<endl;
+		    }
+		}
+	}
+}
+void TargaSystem::stampaAssicurazione(string _valTarga,string _codFisc,string _partIva)const{
+	if((_codFisc!="")&&(_partIva!="")){
+		cout<<"Scegli, o codice fiscale o partita iva!"<<endl;
+	}
+	else{
+		if((_codFisc=="")&&(_partIva=="")){
+			cout<<"Inserisci il codice fiscale o la partita iva!"<<endl;
+		}
+		else{
+			if(_codFisc!=""){//il veicolo appartiene ad un privato!
+				map<string,list<Veicolo> >::const_iterator iter;
+				map<string,list<Veicolo> >::const_iterator temp;
+				temp=mapPrivati.end();
+				for(iter=mapPrivati.begin();iter!=mapPrivati.end();++iter){
+					if (iter->first==_codFisc)
+						temp=iter; //ho trovato la persona nel map
+				}
+				if(temp!=mapPrivati.end()){
+					list<Veicolo>::const_iterator liter;
+					list<Veicolo>::const_iterator temp2;
+					temp2=(temp->second.end());
+					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+						if((*liter).getTarga()==_valTarga)	
+							temp2=liter;//ho trovato la vettura nella lista
+					}
+					if(temp2!=(temp->second.end()))//vuol dire che ho trovato la vettura
+					(*temp2).stampaAssicurazione();
+					else
+						cout<<"Esiste la persona, ma non e' proprietaria di questo veicolo!"<<endl;
+				}
+				else 
+					cout<<"Non esiste questa persona come proprietario di veicoli!"<<endl;
+			}
+			if(_partIva!="")//il veicolo appartiene ad un azienda!
+			{
+				map<string,list<Veicolo> >::const_iterator iter;
+				map<string,list<Veicolo> >::const_iterator temp;
+				temp=mapPrivati.end();
+				for(iter=mapAziende.begin();iter!=mapAziende.end();++iter){
+					if (iter->first==_partIva)
+						temp=iter; //ho trovato l'azienda nel map
+				}
+				if(temp!=mapAziende.end()){
+					list<Veicolo>::const_iterator liter;
+					list<Veicolo>::const_iterator temp2;
+					temp2=(temp->second.end());
+					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+						if((*liter).getTarga()==_valTarga)	
+							temp2=liter;//ho trovato la vettura nella lista
+					}
+					if(temp2!=(temp->second.end())){//vuol dire che ho trovato la vettura
+					(*temp2).stampaAssicurazione();
+					}
+					else
+						cout<<"Esiste l'azienda, ma non e' proprietaria di questa vettura!"<<endl;
+				}
+				else 
+				cout<<"Non esiste questa azienda come proprietaria di veicoli!"<<endl;
+		    }
+		}
+	}
+}
+void TargaSystem::stampaRevisione(string _valTarga,string _codFisc,string _partIva)const{
+	if((_codFisc!="")&&(_partIva!="")){
+		cout<<"Scegli, o codice fiscale o partita iva!"<<endl;
+	}
+	else{
+		if((_codFisc=="")&&(_partIva=="")){
+			cout<<"Inserisci il codice fiscale o la partita iva!"<<endl;
+		}
+		else{
+			if(_codFisc!=""){//il veicolo appartiene ad un privato!
+				map<string,list<Veicolo> >::const_iterator iter;
+				map<string,list<Veicolo> >::const_iterator temp;
+				temp=mapPrivati.end();
+				for(iter=mapPrivati.begin();iter!=mapPrivati.end();++iter){
+					if (iter->first==_codFisc)
+						temp=iter; //ho trovato la persona nel map
+				}
+				if(temp!=mapPrivati.end()){
+					list<Veicolo>::const_iterator liter;
+					list<Veicolo>::const_iterator temp2;
+					temp2=(temp->second.end());
+					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+						if((*liter).getTarga()==_valTarga)	
+							temp2=liter;//ho trovato la vettura nella lista
+					}
+					if(temp2!=(temp->second.end()))//vuol dire che ho trovato la vettura
+					(*temp2).stampaRevisione();
+					else
+						cout<<"Esiste la persona, ma non e' proprietaria di questo veicolo!"<<endl;
+				}
+				else 
+					cout<<"Non esiste questa persona come proprietario di veicoli!"<<endl;
+			}
+			if(_partIva!="")//il veicolo appartiene ad un azienda!
+			{
+				map<string,list<Veicolo> >::const_iterator iter;
+				map<string,list<Veicolo> >::const_iterator temp;
+				temp=mapPrivati.end();
+				for(iter=mapAziende.begin();iter!=mapAziende.end();++iter){
+					if (iter->first==_partIva)
+						temp=iter; //ho trovato l'azienda nel map
+				}
+				if(temp!=mapAziende.end()){
+					list<Veicolo>::const_iterator liter;
+					list<Veicolo>::const_iterator temp2;
+					temp2=(temp->second.end());
+					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+						if((*liter).getTarga()==_valTarga)	
+							temp2=liter;//ho trovato la vettura nella lista
+					}
+					if(temp2!=(temp->second.end())){//vuol dire che ho trovato la vettura
+					(*temp2).stampaRevisione();
+					}
+					else
+						cout<<"Esiste l'azienda, ma non e' proprietaria di questa vettura!"<<endl;
+				}
+				else 
+				cout<<"Non esiste questa azienda come proprietaria di veicoli!"<<endl;
+		    }
+		}
+	}
+}
+
 
 set<TipoVeicolo>::iterator TargaSystem::searchTipoVeicolo(Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag){
 	set<TipoVeicolo>::const_iterator iter;
@@ -416,10 +918,24 @@ void test_targasystem(){
 	t.stampaProp("DN987EE");
 	cout<<endl<<endl<<endl;
 //	t.stampaProp("YR747YE");
-	t.checkAvviso("DN987EE","MTTDNL98A30A001H");
-	t.addBollo("DN987EE",1,11,2018,"MTTDNL98A30A001H");
+	//t.checkAvviso("DN987EE","MTTDNL98A30L378H");
+	t.stampaFurto("DN987EE","MTTDNL98A30L378H");
+	t.stampaAssicurazione("DN987EE","MTTDNL98A30L378H");
+	t.stampaRevisione("DN987EE","MTTDNL98A30L378H");
 	cout<<endl;
-	t.checkAvviso("DN987EE","MTTDNL98A30A001H");
+	t.addBollo("DN987EE",1,11,2018,"MTTDNL98A30L378H");
+	t.addFurto("DN987EE",30,11,2018,"Calavino","ho stato io con lu trattore","MTTDNL98A30L378H");
+	t.addRevisione("DN987EE",30,11,2018,25487,"MTTDNL98A30L378H");
+	t.stampaFurto("DN987EE","MTTDNL98A30L378H");
+	t.stampaRevisione("DN987EE","MTTDNL98A30L378H");
+	
+	cout<<endl<<endl;
+	t.checkAvviso("DN987EE","MTTDNL98A30L378H");
+	cout<<endl<<endl;
+	t.disattivaDenuncia("DN987EE","MTTDNL98A30L378H");
+	t.stampaFurto("DN987EE","MTTDNL98A30L378H");
+	cout<<endl<<endl;
+	t.checkAvviso("DN987EE","MTTDNL98A30L378H");
 	
 	
 	

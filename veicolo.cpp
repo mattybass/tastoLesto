@@ -22,7 +22,7 @@ void Veicolo::addAssicurazione(string _compagnia,int _g,int _m,int _a,int _durat
 
 
 void Veicolo::addFurto(int _g, int _m, int _a, string _note, string _luogo){
-	listaFurto.push_front(Furto(_g,_m,_a,_note,_luogo));
+	listaFurto.push_front(Furto(_g,_m,_a,_luogo,_note));
 }
 
 void Veicolo::addRevisione(int _g, int _m, int _a,int _kmRilevati){
@@ -42,21 +42,31 @@ void Veicolo::stampaBollo()const{
 void Veicolo::stampaFurto()const{
 	cout<<"FURTO"<<endl;
 	list <Furto>::const_iterator iter;
-	for(iter=listaFurto.begin();iter!=listaFurto.end();iter++){
+	iter=listaFurto.begin();
+	if(iter!=listaFurto.end()){
+	for(iter;iter!=listaFurto.end();iter++){
 		cout<<(*iter);
 		cout<<endl<<"----------------------------"<<endl;
 	}
 	cout<<endl;
+	}
+	else
+		cout<<"Ancora nessun furto!"<<endl;
 }
 
 void Veicolo::stampaAssicurazione()const{
 	cout<<"ASSICURAZIONE"<<endl;
 	list <Assicurazione>::const_iterator iter;
+	iter=listaAssicurazione.begin();
+	if(iter!=listaAssicurazione.end()){
 	for(iter=listaAssicurazione.begin();iter!=listaAssicurazione.end();iter++){
 		cout<<(*iter);
 		cout<<endl<<"----------------------------"<<endl;
 	}
-	cout<<endl;		
+	cout<<endl;	
+	}
+	else	
+		cout<<"Ancora nessuna assicurazione!"<<endl;
 }
 
 void Veicolo::stampaRevisione()const{
