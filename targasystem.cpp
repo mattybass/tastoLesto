@@ -1,6 +1,6 @@
 #include "targasystem.h"
 
-TargaSystem::TargaSystem():versione("1.0"),u(){
+TargaSystem::TargaSystem():versione("1.0"){
 }
 
 
@@ -874,8 +874,7 @@ set<TipoVeicolo>::iterator TargaSystem::searchTipoVeicolo(Tipo _tipo, string _ma
 
 void test_targasystem(){
 	TargaSystem t;
-	Utility u;
-	t.addPrivati("MTTDNL98A30L378H","DN987EE",20,11,2013,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
+	t.addPrivati("MTTDNL98A30I830H","DN987EE",20,11,2013,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
 	t.addPrivati("MTTDNL98A30L378H","DN987EE",30,1,2018,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
 	t.addPrivati("MTTDNL98A30L378H","DD987DD",20,1,2005,MOTO,"Kawasakj","Ninja",1000,50,4,5,0);
 	t.addPrivati("AAAA","TE746TT",20,1,2005,MOTO,"Kawasakj","Ninja",1500,50,4,5,0);
@@ -910,8 +909,8 @@ void test_targasystem(){
 	t.stampaAuto("UJ654GG");
 	cout<<endl;	*/
 //	t.stampaAuto("mattydemocristiano");
-	t.addPropPrivati("Daniele","Mattedi","MTTDNL98A30A001H","TN","Madruzzo","Roma","38076",23);
-	t.addPropPrivati("Danilo","Mattedi","MTTDNL97A30A001H","TN","Madruzzo","Roma","38076",23);
+	t.addPropPrivati("Daniele","Mattedi","MTTDNL98A30I830H","TN","Madruzzo","Roma","38076",23);
+	t.addPropPrivati("Danilo","Mattedi","MTTDNL97A30Z356H","TN","Madruzzo","Roma","38076",23);
 	t.addPropAziende("Roberti-programmatore","ziopino","TN","Vallelaghi","Roma","38070",1);
 	t.addPropAziende("Roberti-programmatore","ziopero","TN","Vallelaghi","Roma","38070",1);
 	t.stampaPropPrivati();

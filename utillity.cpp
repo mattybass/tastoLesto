@@ -13,10 +13,9 @@ Utility::Utility(){
 	char c;
 	char comune[50];
 	char codice[5];
-
 	ifstream myfile("belfiore.txt");
 	int k=0;
-	if (myfile.is_open()){
+	while(!myfile.eof()){
 		int cont=0;
 		int i=0;
 		int j=0;
@@ -41,14 +40,15 @@ Utility::Utility(){
 				j=0;
 				string com(comune);
 				string cod(codice);
-				mapBelfiore.insert(pair<string,string> (com,cod));
-		//		cout<<com<<" "<<cod<<endl;	
+				mapBelfiore.insert(pair<string,string> (cod,com));
+			//	cout<<com<<" "<<cod<<endl;	
 			}
 			if(c==';')
 				cont++;	
 		}	
 	}
 	myfile.close();
+	
 
 }	
 
@@ -56,12 +56,16 @@ Utility::Utility(){
 string Utility::getLuogo(string _codiceCatastale)const{
 	map<string,string>::const_iterator iter;
 	iter=mapBelfiore.find(_codiceCatastale);
-	return iter->second;
+	if(iter!=mapBelfiore.end())
+		return iter->second;
+	else
+		return "NON TROVATO!";
 }
+
 
 void test_utility(){
 	Utility u;
-	cout<<u.getLuogo("L378");
+	cout<<u.getLuogo("I830");
 //	u.stampa();
 }
 
