@@ -79,7 +79,7 @@ Privato::Privato(string _nome,string _cognome,string _codFiscale,string _luogoNa
 ostream& operator <<(ostream& os,const Privato &p){
 	os<<p.nome<<" "<<p.cognome<<endl<<"CODICE FISCALE: "<<p.codFiscale<<endl;
 	os<<"DATA DI NASCITA: "<<p.dataNascita<<endl<<"LUOGO DI NASCITA: "<<p.luogoNascita<<endl;
-	os<<"SESSO: "<<p.sesso<<endl<<"RESIDENZA: "<<endl<<p.get_residenza();	
+	os<<"SESSO: "<<p.sesso<<endl<<endl<<"RESIDENZA "<<endl<<p.get_residenza();	
 	return os;
 }
 void Privato::stampa()const{

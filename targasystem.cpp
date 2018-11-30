@@ -236,21 +236,23 @@ void TargaSystem::addPropAziende(string _nomeA,string _pIva,string _provincia, s
 }
 
 void TargaSystem::stampaPropAziende()const{
+	cout<<"LISTA PROPRIETARI AZIENDE"<<endl;
 	map<string,Azienda>::const_iterator miter;
 	for(miter=mapPropAziende.begin();miter!=mapPropAziende.end();miter++){
-		cout<<(miter->first)<<endl;
+		cout<<"-----------------------"<<endl;
 		cout<<(miter->second)<<endl;
-		cout<<endl<<"-----------------------"<<endl;
 	}	
+	cout<<endl<<endl;
 }
 
 void TargaSystem::stampaPropPrivati()const{
+	cout<<"LISTA PROPRIETARI PRIVATI"<<endl;
 	map<string,Privato>::const_iterator miter;
 	for(miter=mapPropPrivati.begin();miter!=mapPropPrivati.end();miter++){
-		cout<<(miter->first)<<endl;
-		cout<<(miter->second)<<endl;
 		cout<<"-----------------------"<<endl;
+		cout<<(miter->second)<<endl;
 	}	
+	cout<<endl<<endl;
 }
 
 void TargaSystem::addPrivati(string _codFiscale,string _targa,int _g,int _m,int _a,Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag){
@@ -885,7 +887,7 @@ void test_targasystem(){
 	t.addAziende("iaiaiaia","YH543FF",20,1,2005,CAMPER,"Ford","Turistico",2000,50,1,4,0);
 	t.addAziende("qooqoqoqqo","UJ654GG",20,1,2005,CAMPER,"Ford","Turistico",2000,50,1,4,0);
 	cout<<endl;
-	t.stampaAuto("DN987EE");
+	//t.stampaAuto("DN987EE");
 	cout<<endl;
 /*	t.stampaAuto("CS429PN");
 	cout<<endl;
@@ -909,8 +911,12 @@ void test_targasystem(){
 	cout<<endl;	*/
 //	t.stampaAuto("mattydemocristiano");
 	t.addPropPrivati("Daniele","Mattedi","MTTDNL98A30A001H","TN","Madruzzo","Roma","38076",23);
+	t.addPropPrivati("Danilo","Mattedi","MTTDNL97A30A001H","TN","Madruzzo","Roma","38076",23);
 	t.addPropAziende("Roberti-programmatore","ziopino","TN","Vallelaghi","Roma","38070",1);
-	cout<<endl<<endl<<endl;
+	t.addPropAziende("Roberti-programmatore","ziopero","TN","Vallelaghi","Roma","38070",1);
+	t.stampaPropPrivati();
+	t.stampaPropAziende();
+	/*cout<<endl<<endl<<endl;
 	t.stampaProp("DN987EE");
 	cout<<endl<<endl<<endl;
 //	t.stampaProp("YR747YE");
@@ -935,7 +941,7 @@ void test_targasystem(){
 	
 	
 	
-	
+	*/
 	
 
 
