@@ -1,8 +1,8 @@
 #include "sicurezza.h"
 
-Sicurezza::Sicurezza(){
+/*Sicurezza::Sicurezza(){
 	euroNcap=nAirbag=0;
-}
+}*/
 Sicurezza::Sicurezza(int _na, int _ncap){
 	euroNcap=_ncap;
 	nAirbag=_na;
