@@ -16,42 +16,38 @@ Utility::Utility(){
 	ifstream myfile("tastoLesto/belfiore.txt");
 	int k=0;
 	while(!myfile.eof()){
-		int cont=0;
+		bool check=0;
 		int i=0;
 		int j=0;
 		while(myfile.get(c)){
-			if(cont==0){
+			if(check==0){
 				if(c!=';'){
 					comune[i]=c;
 					i++;					
 				}
+				else
+					check=1;
 			}
-			if(cont==1){
+			else{
 				if(c!='\n'){
 					codice[j]=c;
 					j++;					
 				}
+				else{
+					comune[i]='\0';
+					codice[j]='\0';
+					check=0;
+					i=0;
+					j=0;
+					string com(comune);
+					string cod(codice);
+					mapBelfiore.insert(pair<string,string> (cod,com));					
+				}
 			}
-			if(cont==1 && c=='\n'){
-				comune[i]='\0';
-				codice[j]='\0';
-				cont=0;
-				i=0;
-				j=0;
-				string com(comune);
-				string cod(codice);
-				mapBelfiore.insert(pair<string,string> (cod,com));
-			//	cout<<com<<" "<<cod<<endl;	
-			}
-			if(c==';')
-				cont++;	
 		}	
 	}
 	myfile.close();
-	
-
 }	
-
 
 string Utility::getLuogo(string _codiceCatastale)const{
 	map<string,string>::const_iterator iter;
@@ -60,13 +56,6 @@ string Utility::getLuogo(string _codiceCatastale)const{
 		return iter->second;
 	else
 		return "NON TROVATO!";
-}
-
-
-void test_utility(){
-	Utility u;
-	cout<<u.getLuogo("I830");
-//	u.stampa();
 }
 
 int convertiStringa(string stringa, int inizio, int nCaratteri){
