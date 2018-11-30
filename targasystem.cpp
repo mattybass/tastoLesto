@@ -236,22 +236,36 @@ void TargaSystem::addPropAziende(string _nomeA,string _pIva,string _provincia, s
 }
 
 void TargaSystem::stampaPropAziende()const{
-	cout<<"LISTA PROPRIETARI AZIENDE"<<endl;
 	map<string,Azienda>::const_iterator miter;
-	for(miter=mapPropAziende.begin();miter!=mapPropAziende.end();miter++){
-		cout<<"-----------------------"<<endl;
-		cout<<(miter->second)<<endl;
-	}	
+	miter=mapPropAziende.begin();
+	if(miter!=mapPropAziende.end()){
+		cout<<"LISTA PROPRIETARI AZIENDE"<<endl;
+		for(miter=mapPropAziende.begin();miter!=mapPropAziende.end();miter++){
+			cout<<"-----------------------"<<endl;
+			cout<<(miter->second)<<endl;
+		}	
+	}
+	else
+	{
+		cout<<"LISTA VUOTA!";	
+	}
 	cout<<endl<<endl;
 }
 
 void TargaSystem::stampaPropPrivati()const{
-	cout<<"LISTA PROPRIETARI PRIVATI"<<endl;
 	map<string,Privato>::const_iterator miter;
-	for(miter=mapPropPrivati.begin();miter!=mapPropPrivati.end();miter++){
-		cout<<"-----------------------"<<endl;
-		cout<<(miter->second)<<endl;
-	}	
+	miter=mapPropPrivati.begin();
+	if(miter!=mapPropPrivati.end()){
+		cout<<"LISTA PROPRIETARI PRIVATI"<<endl;
+		for(miter=mapPropPrivati.begin();miter!=mapPropPrivati.end();miter++){
+			cout<<"-----------------------"<<endl;
+			cout<<(miter->second)<<endl;
+		}	
+	}
+	else
+	{
+		cout<<"LISTA VUOTA!";	
+	}
 	cout<<endl<<endl;
 }
 
