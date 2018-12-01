@@ -41,8 +41,8 @@ class TargaSystem{
 		void stampaFurto(string _valTarga,string _codFisc="",string _partIva="")const;
 		void stampaAssicurazione(string _valTarga,string _codFisc="",string _partIva="")const;
 		void stampaRevisione(string _valTarga,string _codFisc="",string _partIva="")const;
-		void stampaPropAziende()const;
-		void stampaPropPrivati()const;
+		void stampaPropAziende()const;//stampa tutti i proprietari privati
+		void stampaPropPrivati()const;//stampa tutte le aziende proprietarie
 		//Altri metodi
 		void disattivaDenuncia(string _valTarga,string _codFisc="",string _partIva="");
 		void checkAvviso(string _valTarga,string _codFisc="",string _partIva="")const;

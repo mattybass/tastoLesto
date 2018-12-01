@@ -1,6 +1,5 @@
 #ifndef __VEICOLO_H__
 #define __VEICOLO_H__
-
 #include <list>
 #include <set>
 #include <string>

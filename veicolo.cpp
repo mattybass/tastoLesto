@@ -8,10 +8,20 @@ Veicolo::Veicolo(string _targa,set<TipoVeicolo>::iterator _tipoVeicoloCollegato,
 }
 
 void Veicolo::addBollo(int _g,int _m,int _a){
+	list<Bollo>::const_iterator iter;
+	iter=listaBollo.begin();
+	if((iter->get_scadenza())<(Data(_g,_m,_a))){
+		cout<<"Attenzione! Bollo precendente scaduto in data "<<(iter->get_scadenza())<<endl;		
+	}	
 	listaBollo.push_front(Bollo(90,2,_g,_m,_a,1));
 }
 
 void Veicolo::addAssicurazione(string _compagnia,int _g,int _m,int _a,int _durata){
+	list<Assicurazione>::const_iterator iter;
+	iter=listaAssicurazione.begin();
+	if(((iter->get_scadenza())<(Data(_g,_m,_a))) && listaAssicurazione.begin()!=listaAssicurazione.end()){	
+		cout<<"Attenzione! Assicurazione precendente scaduta in data "<<(iter->get_scadenza())<<endl;		
+	}
 	listaAssicurazione.push_front(Assicurazione(_compagnia,_g,_m,_a,_durata));
 }
 
@@ -21,6 +31,12 @@ void Veicolo::addFurto(int _g, int _m, int _a, string _note, string _luogo){
 }
 
 void Veicolo::addRevisione(int _g, int _m, int _a,int _kmRilevati){
+	list<Revisione>::const_iterator iter;
+	iter=listaRevisione.begin();
+	if(((iter->get_scadenza())<(Data(_g,_m,_a))) && listaRevisione.begin()!=listaRevisione.end()){
+		cout<<"Attenzione! Revisione precendente scaduta in data "<<(iter->get_scadenza())<<endl;		
+	}
+
 	listaRevisione.push_front(Revisione(_g,_m,_a,_kmRilevati,1));
 }
 
