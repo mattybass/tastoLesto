@@ -13,58 +13,62 @@ void TargaSystem::checkAvviso(string _valTarga,string _codFisc,string _partIva)c
 			cout<<"Inserisci il codice fiscale o la partita iva!"<<endl;
 		}
 		else{
-			if(_codFisc!="")//il veicolo appartiene ad un privato!
-			{
-				map<string,list<Veicolo> >::const_iterator iter;
-				map<string,list<Veicolo> >::const_iterator temp;
-				temp=mapPrivati.end();
-				for(iter=mapPrivati.begin();iter!=mapPrivati.end();++iter){
-					if (iter->first==_codFisc)
-						temp=iter; //ho trovato la persona nel map
-				}
-				if(temp!=mapPrivati.end()){
-					list<Veicolo>::const_iterator liter;
-					list<Veicolo>::const_iterator temp2;
-					temp2=(temp->second.end());
-					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+			if(searchAuto(_valTarga)!=0){
+				if(_codFisc!="")//il veicolo appartiene ad un privato!
+				{
+					map<string,list<Veicolo> >::const_iterator iter;
+					map<string,list<Veicolo> >::const_iterator temp;
+					temp=mapPrivati.end();
+					for(iter=mapPrivati.begin();iter!=mapPrivati.end();++iter){
+						if (iter->first==_codFisc)
+							temp=iter; //ho trovato la persona nel map
+					}
+					if(temp!=mapPrivati.end()){
+						list<Veicolo>::const_iterator liter;
+						list<Veicolo>::const_iterator temp2;
+						temp2=(temp->second.end());
+						for(liter=temp->second.begin();liter!=temp->second.end();++liter){
 						if((*liter).getTarga()==_valTarga)	
 							temp2=liter;//ho trovato la vettura nella lista
+						}
+						if(temp2!=(temp->second.end()))//vuol dire che ho trovato la vettura
+							(*temp2).check();
+						else
+							cout<<"Esiste la persona, ma non e' proprietaria di questo veicolo!"<<endl;
 					}
-					if(temp2!=(temp->second.end()))//vuol dire che ho trovato la vettura
-					(*temp2).check();
-					else
-						cout<<"Esiste la persona, ma non e' proprietaria di questo veicolo!"<<endl;
+					else 
+						cout<<"Non esiste questa persona come proprietario di veicoli!"<<endl;
 				}
-				else 
-					cout<<"Non esiste questa persona come proprietario di veicoli!"<<endl;
-			}
-			if(_partIva!="")//il veicolo appartiene ad un azienda!
-			{
-				map<string,list<Veicolo> >::const_iterator iter;
-				map<string,list<Veicolo> >::const_iterator temp;
-				temp=mapPrivati.end();
-				for(iter=mapAziende.begin();iter!=mapAziende.end();++iter){
-					if (iter->first==_partIva)
-						temp=iter; //ho trovato l'azienda nel map
-				}
-				if(temp!=mapAziende.end()){
-					list<Veicolo>::const_iterator liter;
-					list<Veicolo>::const_iterator temp2;
-					temp2=(temp->second.end());
-					for(liter=temp->second.begin();liter!=temp->second.end();++liter){
-						if((*liter).getTarga()==_valTarga)	
-							temp2=liter;//ho trovato la vettura nella lista
+				if(_partIva!="")//il veicolo appartiene ad un azienda!
+				{
+					map<string,list<Veicolo> >::const_iterator iter;
+					map<string,list<Veicolo> >::const_iterator temp;
+					temp=mapPrivati.end();
+					for(iter=mapAziende.begin();iter!=mapAziende.end();++iter){
+						if (iter->first==_partIva)
+							temp=iter; //ho trovato l'azienda nel map
 					}
-					if(temp2!=(temp->second.end())){//vuol dire che ho trovato la vettura
-					(*temp2).check();
+					if(temp!=mapAziende.end()){
+						list<Veicolo>::const_iterator liter;
+						list<Veicolo>::const_iterator temp2;
+						temp2=(temp->second.end());
+						for(liter=temp->second.begin();liter!=temp->second.end();++liter){
+							if((*liter).getTarga()==_valTarga)	
+								temp2=liter;//ho trovato la vettura nella lista
+						}
+						if(temp2!=(temp->second.end())){//vuol dire che ho trovato la vettura
+							(*temp2).check();
+						}
+						else
+							cout<<"Esiste l'azienda, ma non e' proprietaria di questa vettura!"<<endl;
 					}
-					else
-						cout<<"Esiste l'azienda, ma non e' proprietaria di questa vettura!"<<endl;
-				}
 				else 
 				cout<<"Non esiste questa azienda come proprietaria di veicoli!"<<endl;
-		    }
-		}
+		    	}	
+			}
+			else
+				cout<<"Auto non presente!"<<endl;
+			}
 	}
 }
 
@@ -229,10 +233,12 @@ void TargaSystem::stampaProp(string _valTarga)const{
 
 void TargaSystem::addPropPrivati(string _nome,string _cognome,string _codFiscale,string _provincia, string _com, string _via, int _nCivico,string _cap){
 	mapPropPrivati.insert(pair<string,Privato> (_codFiscale,Privato(_nome,_cognome,_codFiscale,u.getLuogo(_codFiscale.substr(11,4)),_provincia,_com,_via,_nCivico,_cap)));
+	cout<<"Aggiunto proprietario privato correttamente!"<<endl;
 }
 
 void TargaSystem::addPropAziende(string _nomeA,string _pIva,string _provincia, string _com, string _via, int _nCivico,string _cap){
 	mapPropAziende.insert(pair<string,Azienda> (_pIva,Azienda(_nomeA,_pIva,_provincia,_com,_via,_nCivico,_cap)));
+	cout<<"Aggiunto proprietario azienda correttamente!"<<endl;
 }
 
 void TargaSystem::stampaPropAziende()const{
@@ -272,18 +278,26 @@ void TargaSystem::stampaPropPrivati()const{
 void TargaSystem::addPrivati(string _codFiscale,string _targa,int _g,int _m,int _a,Tipo _tipo, string _marca, string _modello, int _cilindrata, int _kw, int _catEuro, int _euroNcap, int _nAirbag){
 	if(searchAuto(_targa)==0){
 		map<string,list<Veicolo> >::iterator miter;
+		map<string,Privato>::iterator miter2;
 		list<Veicolo> listaV;
 		set<TipoVeicolo>::iterator iter;
-		miter=mapPrivati.find(_codFiscale);
-		iter=searchTipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag);
-		if(miter!=mapPrivati.end()){
-			(miter->second).push_front(Veicolo(_targa,iter,_g,_m,_a));
+		miter2=mapPropPrivati.find(_codFiscale);
+		if(miter2!=mapPropPrivati.end()){
+			miter=mapPrivati.find(_codFiscale);
+			iter=searchTipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag);
+			if(miter!=mapPrivati.end()){
+				(miter->second).push_front(Veicolo(_targa,iter,_g,_m,_a));
+				cout<<"Veicolo aggiunto correttamente!"<<endl;
+			}
+			else{
+				listaV.push_front(Veicolo(_targa,iter,_g,_m,_a));
+				mapPrivati.insert(make_pair(_codFiscale,listaV));
+				cout<<"Veicolo aggiunto correttamente! e' il primo veicolo di questo proprietario!"<<endl;
+			}
 		}
-		else{
-			listaV.push_front(Veicolo(_targa,iter,_g,_m,_a));
-			mapPrivati.insert(make_pair(_codFiscale,listaV));
+		else
+			cout<<"Proprietario non presente! Inserisci prima i dati del proprietario!"<<endl;
 		}
-	}
 	else
 		cout<<_targa<<" ha gia' un proprietario"<<endl;
 }
@@ -293,16 +307,24 @@ void TargaSystem::addAziende(string _pIva,string _targa,int _g,int _m,int _a,Tip
 		map<string,list<Veicolo> >::iterator miter;
 		list<Veicolo> listaV;
 		set<TipoVeicolo>::iterator iter;
-		miter=mapAziende.find(_pIva);
-		iter=searchTipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag);
-		if(miter!=mapAziende.end()){
-			(miter->second).push_front(Veicolo(_targa,iter,_g,_m,_a));
+		map<string,Azienda>::iterator miter2;
+		miter2=mapPropAziende.find(_pIva);
+		if(miter2!=mapPropAziende.end()){
+			miter=mapAziende.find(_pIva);
+			iter=searchTipoVeicolo(_tipo,_marca,_modello,_cilindrata,_kw,_catEuro,_euroNcap,_nAirbag);
+			if(miter!=mapAziende.end()){
+				(miter->second).push_front(Veicolo(_targa,iter,_g,_m,_a));
+				cout<<"Veicolo aggiunto correttamente!"<<endl;
+			}
+			else{
+				listaV.push_front(Veicolo(_targa,iter,_g,_m,_a));
+				mapAziende.insert(make_pair(_pIva,listaV));
+				cout<<"Veicolo aggiunto correttamente! e' il primo veicolo di questo proprietario!"<<endl;
+			}
 		}
-		else{
-			listaV.push_front(Veicolo(_targa,iter,_g,_m,_a));
-			mapAziende.insert(make_pair(_pIva,listaV));
+		else
+			cout<<"Proprietario non presente! Inserisci prima i dati del proprietario!"<<endl;
 		}
-	}
 	else
 		cout<<_targa<<" ha gia' un proprietario"<<endl;
 }		

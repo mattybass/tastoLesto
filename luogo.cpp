@@ -11,7 +11,7 @@ Luogo::Luogo(string _provincia, string _com, string _via, int _nCivico, string _
 }
 
 ostream& operator<<(ostream& os,const Luogo& _l){
-	os<<"Comune di "<<_l.comune<<" ("<<_l.provincia<<")"<<endl<<"Via "<<_l.via<<", "<<_l.nCivico<<endl<<"Cap "<<_l.cap;
+	os<<"Comune di "<<_l.comune<<" ("<<_l.provincia<<")"<<endl<<"Via "<<_l.via<<", "<<_l.nCivico<<endl<<"Cap "<<_l.cap<<endl;
 	return os;
 }
 

@@ -45,7 +45,7 @@ void Veicolo::stampaBollo()const{
 	list <Bollo>::const_iterator iter;
 	for(iter=listaBollo.begin();iter!=listaBollo.end();iter++){
 		cout<<(*iter);
-		cout<<endl<<"----------------------------"<<endl;
+		cout<<"----------------------------"<<endl;
 	}
 	cout<<endl;	
 }
@@ -57,7 +57,7 @@ void Veicolo::stampaFurto()const{
 	if(iter!=listaFurto.end()){
 	for(iter;iter!=listaFurto.end();iter++){
 		cout<<(*iter);
-		cout<<endl<<"----------------------------"<<endl;
+		cout<<"----------------------------"<<endl;
 	}
 	cout<<endl;
 	}
@@ -156,9 +156,9 @@ void Veicolo::check()const{
 	
 	cout<<endl<<"FURTO: ";
 	if(checkFurto()==1)
-		cout<<"denuncia attiva";
+		cout<<"denuncia attiva"<<endl;
 	else
-		cout<<"nessuna denuncia attiva";
+		cout<<"nessuna denuncia attiva"<<endl;
 }	
 
 void Veicolo::disattivaDenuncia(){

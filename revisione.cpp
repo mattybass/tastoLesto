@@ -1,8 +1,8 @@
 #include "revisione.h"
 
-Revisione::Revisione(int _g, int _m, int _a,int _kmRilevati,bool check):dataScadenzaR(_g,_m%12+1,int(_m/12)+_a+4),dataInizioR(_g,_m,_a){
+Revisione::Revisione(int _g, int _m, int _a,int _kmRilevati,bool check):dataScadenzaR(_g,_m,_a+4),dataInizioR(_g,_m,_a){
 	if(check==1)
-		dataScadenzaR=Data(_g,_m%12+1,int(_m/12)+_a+2);
+		dataScadenzaR=Data(_g,_m,_a+2);
 	kmRilevati=_kmRilevati;
 }
 
